@@ -1,0 +1,270 @@
+
+{
+  "site": {
+    "title": "Care & Knowledge",
+    "subtitle": "Healthcare Training Hub",
+    "centralTheme": "Responsive & Patient-Centred Healthcare",
+    "totalTopics": 9
+  },
+
+  "topics": [
+
+    {
+      "id": "patients-rights",
+      "number": "01",
+      "title": "Patients' Rights",
+      "category": "Patient Protection",
+      "icon": "fa-shield-heart",
+
+      "description": "Patients' rights are the fundamental entitlements that every person should enjoy when accessing healthcare services. Healthcare workers must respect patients' dignity, privacy, confidentiality, autonomy and right to receive appropriate information before making healthcare decisions.",
+
+      "keyPoints": [
+        "Every patient deserves respectful and dignified treatment.",
+        "Patients have a right to privacy during consultations and examinations.",
+        "Personal health information must remain confidential, subject to applicable legal and safety requirements.",
+        "Patients should receive understandable information to support informed decisions.",
+        "Patients should be treated fairly without discrimination."
+      ],
+
+      "subtopics": [
+        "Right to Dignity",
+        "Privacy",
+        "Confidentiality",
+        "Informed Consent",
+        "Access to Healthcare",
+        "Non-discrimination"
+      ]
+    },
+
+
+    {
+      "id": "individual-differences",
+      "number": "02",
+      "title": "Individual Differences",
+      "category": "Understanding Patients",
+      "icon": "fa-users",
+
+      "description": "Individual differences refer to the ways people differ in their attitudes, behaviours, experiences, beliefs, communication styles and healthcare needs. Healthcare workers should recognise that patients do not all think, respond or make decisions in the same way.",
+
+      "keyPoints": [
+        "Patients have different attitudes towards healthcare services.",
+        "Past experiences can influence how patients interact with healthcare workers.",
+        "Cultural and social backgrounds may influence healthcare decisions.",
+        "Avoid making assumptions about patients based on appearance or background.",
+        "Adapt communication to individual needs while maintaining professional standards."
+      ],
+
+      "subtopics": [
+        "Patients' Attitudes",
+        "Patients' Behaviours",
+        "Individual Experiences",
+        "Social Differences",
+        "Cultural Considerations",
+        "Personal Healthcare Needs"
+      ]
+    },
+
+
+    {
+      "id": "sexual-practices",
+      "number": "03",
+      "title": "Common Sexual Practices",
+      "category": "Sexual Health Education",
+      "icon": "fa-book-open",
+
+      "description": "Understanding common sexual practices helps healthcare workers provide accurate, respectful and non-judgmental sexual health information. Discussions should focus on relevant health considerations, individual circumstances and appropriate prevention services.",
+
+      "keyPoints": [
+        "Sexual practices differ among individuals.",
+        "Healthcare workers should communicate without prejudice or judgment.",
+        "Sexual health discussions should respect privacy and confidentiality.",
+        "Health education should be factual, appropriate and understandable.",
+        "Risk assessment should consider the specific circumstances and exposure involved."
+      ],
+
+      "subtopics": [
+        "Understanding Sexual Practices",
+        "Sexual Health Education",
+        "Respectful Patient Discussions",
+        "Individual Circumstances",
+        "Prevention Awareness"
+      ]
+    },
+
+
+    {
+      "id": "infection-risk",
+      "number": "04",
+      "title": "Degree of Risk of Infection",
+      "category": "Infection Risk Awareness",
+      "icon": "fa-chart-line",
+
+      "description": "Understanding the degree of infection risk involves recognising that different exposures and circumstances may carry different levels of risk. Healthcare workers should provide evidence-based information and help patients understand appropriate prevention and testing options.",
+
+      "keyPoints": [
+        "Not every exposure carries the same level of infection risk.",
+        "Risk assessment should consider the type of exposure and relevant circumstances.",
+        "Accurate information helps prevent misconceptions and unnecessary fear.",
+        "Healthcare workers should avoid assumptions and provide individualised guidance.",
+        "Prevention and testing services should be discussed where appropriate."
+      ],
+
+      "subtopics": [
+        "Understanding Exposure",
+        "Different Levels of Risk",
+        "Risk Assessment",
+        "HIV Transmission Education",
+        "Prevention Information",
+        "Testing and Referral"
+      ]
+    },
+
+
+    {
+      "id": "healthcare-messages",
+      "number": "05",
+      "title": "Key Messages for Healthcare Workers",
+      "category": "Professional Responsibilities",
+      "icon": "fa-message",
+
+      "description": "Healthcare workers play an important role in creating safe, respectful and inclusive healthcare environments. Their professional responsibilities include providing accurate information, protecting confidentiality, avoiding discrimination and ensuring that patients feel respected.",
+
+      "keyPoints": [
+        "Treat every patient with dignity and respect.",
+        "Avoid prejudice, stigma and discriminatory behaviour.",
+        "Protect patient privacy and confidentiality.",
+        "Use clear, understandable and respectful language.",
+        "Provide accurate health information based on established guidance.",
+        "Ensure appropriate referrals and continuity of care."
+      ],
+
+      "subtopics": [
+        "Professional Conduct",
+        "Respectful Treatment",
+        "Confidentiality",
+        "Non-discrimination",
+        "Stigma Reduction",
+        "Patient Safety"
+      ]
+    },
+
+
+    {
+      "id": "comprehensive-hiv",
+      "number": "06",
+      "title": "Comprehensive HIV Packages",
+      "category": "Integrated HIV Services",
+      "icon": "fa-kit-medical",
+
+      "description": "Comprehensive HIV service packages bring together relevant prevention, testing, treatment, care and support interventions. The aim is to address patients' health needs through coordinated services rather than treating each intervention in isolation.",
+
+      "keyPoints": [
+        "HIV services should address prevention, diagnosis, treatment and ongoing care.",
+        "Patients should be linked to appropriate services based on their needs.",
+        "Healthcare delivery should consider physical, psychological and social support needs.",
+        "Continuity of care is important throughout the service pathway.",
+        "Integrated services can improve access and coordination of healthcare."
+      ],
+
+      "subtopics": [
+        "HIV Prevention",
+        "HIV Testing",
+        "Treatment and ART",
+        "Care and Support",
+        "Linkage to Services",
+        "Continuity of Care"
+      ]
+    },
+
+
+    {
+      "id": "hts",
+      "number": "07",
+      "title": "HIV Testing Services (HTS)",
+      "category": "HIV Testing and Counselling",
+      "icon": "fa-clipboard-check",
+
+      "description": "HIV Testing Services (HTS) are services through which individuals receive HIV testing together with appropriate information, support, counselling and linkage to prevention, treatment and care services. HTS should follow established guiding principles and applicable national testing algorithms.",
+
+      "keyPoints": [
+        "HTS helps individuals understand their HIV status.",
+        "Testing should follow applicable national guidelines and approved testing algorithms.",
+        "Consent, confidentiality, counselling, correct results and connection to services are important principles.",
+        "People with reactive screening results require the appropriate testing pathway to establish their final status.",
+        "Partner testing approaches should respect individual rights, safety and voluntary participation."
+      ],
+
+      "subtopics": [
+        "Introduction to HTS",
+        "Guiding Principles of HTS",
+        "HIV Partner Testing Approaches",
+        "Testing and Counselling",
+        "Result Communication",
+        "Linkage to Prevention and Treatment"
+      ]
+    },
+
+
+    {
+      "id": "hiv-prevention",
+      "number": "08",
+      "title": "Comprehensive HIV Prevention Services",
+      "category": "HIV Prevention",
+      "icon": "fa-heart-circle-check",
+
+      "description": "Comprehensive HIV prevention services combine appropriate biomedical, behavioural and structural interventions to reduce HIV transmission and support individual and community health. Prevention approaches should respond to the needs and circumstances of the people receiving services.",
+
+      "keyPoints": [
+        "Combination prevention brings different evidence-based interventions together.",
+        "Prevention education helps people make informed health decisions.",
+        "Condoms and other appropriate prevention options form part of HIV prevention programmes.",
+        "PrEP and PEP are important biomedical prevention options when clinically appropriate.",
+        "Testing, treatment and linkage to care contribute to prevention efforts.",
+        "Reducing stigma and improving access to services support effective prevention."
+      ],
+
+      "subtopics": [
+        "Combination Prevention",
+        "Behavioural Interventions",
+        "Biomedical Interventions",
+        "Structural Interventions",
+        "PrEP and PEP",
+        "Condom Programming",
+        "Community Awareness"
+      ]
+    },
+
+
+    {
+      "id": "communication-skills",
+      "number": "09",
+      "title": "Good Communication Skills",
+      "category": "Responsive Healthcare",
+      "icon": "fa-comments",
+
+      "description": "Good communication skills help healthcare workers understand patients, explain health information and build trust. Responsive communication involves listening carefully, showing empathy, using understandable language and adapting conversations to the patient's needs.",
+
+      "keyPoints": [
+        "Listen actively without unnecessarily interrupting patients.",
+        "Use clear and simple language when explaining health information.",
+        "Demonstrate empathy and respect.",
+        "Allow patients to ask questions and express concerns.",
+        "Use appropriate non-verbal communication.",
+        "Confirm understanding without making patients feel uncomfortable.",
+        "Protect confidentiality during conversations."
+      ],
+
+      "subtopics": [
+        "Active Listening",
+        "Empathy",
+        "Verbal Communication",
+        "Non-verbal Communication",
+        "Open-ended Questions",
+        "Patient Education",
+        "Building Trust",
+        "Responding to Patient Concerns"
+      ]
+    }
+
+  ]
+}
