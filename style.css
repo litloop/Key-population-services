@@ -1,0 +1,1141 @@
+
+/* =========================================
+   01. ROOT VARIABLES & RESET
+========================================= */
+
+:root {
+    --bg: #F5F5F7;
+    --surface: #FFFFFF;
+    --surface-glass: rgba(255, 255, 255, 0.78);
+
+    --text: #171719;
+    --secondary: #6E6E73;
+    --muted: #98989D;
+
+    --accent: #315B70;
+    --accent-light: #EAF1F4;
+    --line: #C8D4DA;
+
+    --border: rgba(0, 0, 0, 0.07);
+
+    --shadow:
+        0 12px 40px rgba(25, 35, 45, 0.07);
+
+    --soft-shadow:
+        0 5px 18px rgba(25, 35, 45, 0.06);
+
+    --radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+::selection {
+    background: #DCE8ED;
+    color: #193B50;
+}
+
+
+/* =========================================
+   02. HEADER
+========================================= */
+
+.site-header {
+    width: 100%;
+    height: 82px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(245, 245, 247, 0.86);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--accent);
+    color: white;
+
+    border-radius: 14px;
+    font-size: 19px;
+}
+
+.brand-name {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.brand-name strong {
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.brand-name small {
+    font-size: 11px;
+    color: var(--secondary);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.main-nav a {
+    font-size: 13px;
+    color: var(--secondary);
+    transition: 0.25s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--accent);
+}
+
+.header-action {
+    border: 1px solid var(--border);
+    background: white;
+
+    padding: 11px 17px;
+    border-radius: 30px;
+
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.header-action:hover {
+    background: var(--accent);
+    color: white;
+}
+
+
+/* =========================================
+   03. HERO
+========================================= */
+
+.hero {
+    min-height: 390px;
+
+    padding: 80px 9%;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(49, 91, 112, 0.09),
+            transparent 35%
+        );
+}
+
+.hero-content {
+    max-width: 690px;
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    margin-bottom: 17px;
+}
+
+.hero h1,
+.section-heading h2,
+.about-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.13;
+    max-width: 650px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--accent);
+}
+
+.hero p {
+    margin-top: 20px;
+
+    max-width: 570px;
+
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.explore-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 27px;
+
+    background: var(--accent);
+    color: white;
+
+    padding: 14px 22px;
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.explore-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.hero-decoration {
+    position: absolute;
+    right: 12%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 230px;
+    height: 230px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    border: 1px solid rgba(49, 91, 112, 0.12);
+
+    color: rgba(49, 91, 112, 0.15);
+    font-size: 100px;
+}
+
+.hero-decoration::before,
+.hero-decoration::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(49, 91, 112, 0.10);
+    border-radius: 50%;
+}
+
+.hero-decoration::before {
+    inset: -30px;
+}
+
+.hero-decoration::after {
+    inset: -60px;
+}
+
+
+/* =========================================
+   04. MIND MAP SECTION
+========================================= */
+
+.mindmap-section {
+    padding: 75px 5% 60px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    max-width: 1400px;
+    margin: 0 auto 45px;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.2;
+}
+
+.section-heading h2 span {
+    color: var(--accent);
+}
+
+.section-heading p {
+    color: var(--secondary);
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.map-instruction {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 16px;
+
+    border: 1px solid var(--border);
+    background: white;
+
+    border-radius: 30px;
+
+    color: var(--secondary);
+    font-size: 11px;
+}
+
+
+/* =========================================
+   05. RADIAL MIND MAP CANVAS
+========================================= */
+
+.mindmap-container {
+    width: 100%;
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: thin;
+    scrollbar-color: #BBC8CF transparent;
+
+    border: 1px solid rgba(0, 0, 0, 0.045);
+    border-radius: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #FFFFFF 0%,
+            #F8FAFB 48%,
+            #F1F3F5 100%
+        );
+
+    box-shadow: var(--soft-shadow);
+}
+
+.mindmap-canvas {
+    position: relative;
+
+    width: 1200px;
+    height: 1000px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   06. CENTRAL NODE
+========================================= */
+
+.mindmap-center {
+    position: absolute;
+
+    width: 245px;
+    height: 245px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        145deg,
+        #193B50,
+        #274F65
+    );
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 27px;
+
+    box-shadow:
+        0 0 0 12px rgba(49, 91, 112, 0.06),
+        0 0 0 28px rgba(49, 91, 112, 0.025),
+        0 20px 50px rgba(25, 59, 80, 0.22);
+
+    z-index: 5;
+}
+
+.center-icon {
+    width: 49px;
+    height: 49px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.center-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+
+    margin-bottom: 8px;
+}
+
+.mindmap-center h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 19px;
+    line-height: 1.35;
+}
+
+.mindmap-center p {
+    font-size: 9px;
+    opacity: 0.75;
+
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   07. MIND MAP BRANCH NODES
+========================================= */
+
+.mindmap-node {
+    position: absolute;
+
+    width: 255px;
+    min-height: 82px;
+
+    padding: 13px 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    text-align: left;
+
+    border: 1px solid rgba(49, 91, 112, 0.13);
+    border-radius: 17px;
+
+    background: var(--surface-glass);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow: var(--soft-shadow);
+
+    z-index: 10;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.mindmap-node:hover {
+    transform: translateY(-5px) scale(1.025);
+
+    background: white;
+
+    border-color: rgba(49, 91, 112, 0.4);
+
+    box-shadow:
+        0 15px 35px rgba(25, 59, 80, 0.12);
+}
+
+.mindmap-node:focus-visible {
+    outline: 3px solid #7398AA;
+    outline-offset: 4px;
+}
+
+.node-icon {
+    flex-shrink: 0;
+
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--accent-light);
+    color: var(--accent);
+
+    border-radius: 13px;
+
+    font-size: 17px;
+}
+
+.node-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    flex: 1;
+    min-width: 0;
+}
+
+.node-content strong {
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.node-content small {
+    color: var(--secondary);
+    font-size: 9px;
+}
+
+.node-arrow {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+
+/* =========================================
+   08. RADIAL NODE POSITIONS
+========================================= */
+
+/*
+   Nine branches are distributed around
+   the central node.
+
+   These coordinates create the visual
+   radial arrangement.
+*/
+
+.node-01 {
+    left: 473px;
+    top: 65px;
+}
+
+.node-02 {
+    left: 810px;
+    top: 150px;
+}
+
+.node-03 {
+    left: 900px;
+    top: 390px;
+}
+
+.node-04 {
+    left: 810px;
+    top: 700px;
+}
+
+.node-05 {
+    left: 473px;
+    top: 850px;
+}
+
+.node-06 {
+    left: 135px;
+    top: 700px;
+}
+
+.node-07 {
+    left: 45px;
+    top: 390px;
+}
+
+.node-08 {
+    left: 135px;
+    top: 150px;
+}
+
+.node-09 {
+    left: 473px;
+    top: 455px;
+}
+
+
+/* =========================================
+   09. CONNECTING BRANCH LINES
+========================================= */
+
+/*
+   Lines connect the outer topics to
+   the central hub.
+*/
+
+.mindmap-canvas::before {
+    content: "";
+
+    position: absolute;
+
+    width: 560px;
+    height: 560px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px dashed rgba(49, 91, 112, 0.23);
+
+    border-radius: 50%;
+
+    z-index: 1;
+}
+
+.mindmap-center::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -42px;
+
+    border: 1px dashed rgba(49, 91, 112, 0.18);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   10. MAP FOOTER
+========================================= */
+
+.map-footer {
+    max-width: 1400px;
+
+    margin: 17px auto 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--secondary);
+    font-size: 11px;
+}
+
+.map-footer span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* =========================================
+   11. ABOUT SECTION
+========================================= */
+
+.about-section {
+    padding: 100px 10%;
+
+    text-align: center;
+
+    background: white;
+
+    border-top: 1px solid var(--border);
+}
+
+.about-section h2 {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    font-size: clamp(30px, 4vw, 45px);
+    line-height: 1.25;
+}
+
+.about-section p {
+    max-width: 650px;
+
+    margin: 20px auto 0;
+
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   12. MODAL OVERLAY
+========================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 500;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(15, 25, 32, 0.48);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.topic-modal {
+    width: 100%;
+    max-width: 650px;
+
+    max-height: 88vh;
+
+    overflow-y: auto;
+
+    background: #FFFFFF;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.2);
+
+    transform: translateY(25px) scale(0.97);
+
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .topic-modal {
+    transform: translateY(0) scale(1);
+}
+
+
+/* =========================================
+   13. MODAL HEADER
+========================================= */
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 25px 30px 10px;
+}
+
+.modal-topic-icon {
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--accent-light);
+    color: var(--accent);
+
+    border-radius: 16px;
+
+    font-size: 21px;
+}
+
+.modal-close {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #F1F2F4;
+    color: var(--secondary);
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+.modal-close:hover {
+    background: var(--accent);
+    color: white;
+}
+
+
+/* =========================================
+   14. MODAL BODY
+========================================= */
+
+.modal-body {
+    padding: 20px 30px 30px;
+}
+
+.modal-body h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 31px;
+    line-height: 1.25;
+
+    margin-bottom: 14px;
+}
+
+.modal-description {
+    color: var(--secondary);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* LEARNING POINTS */
+
+.learning-points {
+    margin-top: 28px;
+}
+
+.learning-points h3,
+.related-topics h3 {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.learning-points h3 i {
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+#modalPoints {
+    display: grid;
+    gap: 10px;
+}
+
+.learning-point {
+    padding: 12px 14px;
+
+    background: #F6F7F8;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    color: var(--secondary);
+    font-size: 12px;
+}
+
+.learning-point i {
+    color: var(--accent);
+    margin-top: 4px;
+}
+
+
+/* RELATED TOPICS */
+
+.related-topics {
+    margin-top: 28px;
+}
+
+#modalSubtopics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.subtopic-tag {
+    padding: 9px 13px;
+
+    border-radius: 30px;
+
+    background: var(--accent-light);
+    color: var(--accent);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   15. MODAL FOOTER
+========================================= */
+
+.modal-footer {
+    padding: 17px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid var(--border);
+}
+
+.modal-footer span {
+    color: var(--secondary);
+    font-size: 10px;
+}
+
+.modal-footer span i {
+    margin-right: 5px;
+}
+
+.modal-footer button {
+    border: none;
+
+    padding: 11px 20px;
+
+    background: var(--accent);
+    color: white;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   16. FOOTER
+========================================= */
+
+.site-footer {
+    padding: 45px 7%;
+
+    text-align: center;
+
+    background: #171719;
+    color: white;
+}
+
+.footer-brand {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.site-footer p {
+    color: #B5B5BA;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.site-footer small {
+    display: block;
+
+    margin-top: 17px;
+
+    color: #85858A;
+    font-size: 10px;
+}
+
+
+/* =========================================
+   17. RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+
+    .site-header {
+        padding: 0 4%;
+    }
+
+    .main-nav {
+        gap: 17px;
+    }
+
+    .hero-decoration {
+        right: 4%;
+        opacity: 0.45;
+    }
+
+    .mindmap-section {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+}
+
+
+/* TABLET AND MOBILE HEADER */
+
+@media (max-width: 650px) {
+
+    .site-header {
+        height: 72px;
+    }
+
+    .brand-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .brand-name strong {
+        font-size: 11px;
+    }
+
+    .brand-name small {
+        font-size: 9px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .header-action {
+        font-size: 10px;
+        padding: 9px 12px;
+    }
+
+    .hero {
+        min-height: 360px;
+        padding: 65px 7%;
+    }
+
+    .hero-decoration {
+        right: -90px;
+        opacity: 0.25;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .section-heading h2 {
+        font-size: 33px;
+    }
+
+    .map-instruction {
+        font-size: 10px;
+    }
+
+    .mindmap-container {
+        border-radius: 20px;
+    }
+
+    .mindmap-canvas {
+        width: 1200px;
+        height: 1000px;
+    }
+
+    .map-footer {
+        gap: 12px;
+        font-size: 9px;
+    }
+
+    .about-section {
+        padding: 75px 7%;
+    }
+
+    .modal-overlay {
+        padding: 12px;
+    }
+
+    .topic-modal {
+        max-height: 90vh;
+        border-radius: 20px;
+    }
+
+    .modal-header {
+        padding: 20px 20px 8px;
+    }
+
+    .modal-body {
+        padding: 17px 20px 25px;
+    }
+
+    .modal-body h2 {
+        font-size: 26px;
+    }
+
+    .modal-footer {
+        padding: 15px 20px;
+    }
+
+}
+
+
+/* =========================================
+   18. ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
