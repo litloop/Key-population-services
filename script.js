@@ -1,650 +1,352 @@
 
 "use strict";
 
-/* =========================================
-   01. SELECT HTML ELEMENTS
-========================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = {
+    canvas: document.querySelector(".mindmap-canvas"),
+    center: document.querySelector(".mindmap-center"),
 
-const elements = {
-    topicNodes: document.querySelectorAll(".mindmap-node"),
-
-    modal: document.getElementById("topicModal"),
+    topicModal: document.getElementById("topicModal"),
     modalTitle: document.getElementById("modalTitle"),
     modalCategory: document.getElementById("modalCategory"),
     modalDescription: document.getElementById("modalDescription"),
     modalIcon: document.getElementById("modalIcon"),
-
     modalPoints: document.getElementById("modalPoints"),
     modalSubtopics: document.getElementById("modalSubtopics"),
 
     closeModal: document.getElementById("closeModal"),
-    modalDone: document.getElementById("modalDone"),
+    modalDone: document.getElementById("modalDone")
+  };
 
-    canvas: document.querySelector(".mindmap-canvas"),
-    center: document.querySelector(".mindmap-center"),
+  let topics = [];
+  let connectorSvg = null;
 
-    footer: document.querySelector(".map-footer")
-};
+  // ---------------------------------------
+  // LOAD TRAINING DATA
+  // ---------------------------------------
 
-
-/* =========================================
-   02. APPLICATION STATE
-========================================= */
-
-const appState = {
-    topics: [],
-    activeTopic: null,
-    previousFocus: null,
-    loading: false
-};
-
-
-/* =========================================
-   03. LOAD JSON DATA
-========================================= */
-
-async function loadTrainingData() {
-
-    appState.loading = true;
-
+  async function loadTrainingData() {
     try {
+      const response = await fetch("./data.json");
 
-        const response = await fetch("./data.json", {
-            cache: "no-cache"
-        });
+      if (!response.ok) {
+        throw new Error("Unable to load data.json");
+      }
 
-        if (!response.ok) {
-            throw new Error(
-                `Unable to load data.json: ${response.status}`
-            );
-        }
+      const data = await response.json();
 
-        const data = await response.json();
+      if (!data.site || !Array.isArray(data.topics)) {
+        throw new Error("The training data structure is invalid.");
+      }
 
-        if (!Array.isArray(data.topics)) {
-            throw new Error("Invalid training data structure.");
-        }
+      topics = data.topics;
 
-        appState.topics = data.topics;
-
-        console.log(
-            `Successfully loaded ${appState.topics.length} training topics.`
-        );
-
-        updateSiteInformation(data);
-
-        return true;
+      updateSiteInformation(data.site);
+      createTopicNodes();
+      drawMindMapConnections();
 
     } catch (error) {
+      console.error("Training data error:", error);
+      showMapError(
+        "The training topics could not be loaded. Please check data.json."
+      );
+    }
+  }
 
-        console.error("Training data error:", error);
+  // ---------------------------------------
+  // UPDATE WEBSITE INFORMATION
+  // ---------------------------------------
 
-        showMapError(
-            "We couldn't load the training materials. Please check that data.json is available."
-        );
+  function updateSiteInformation(site) {
+    const title = document.querySelector(".site-title");
+    const subtitle = document.querySelector(".site-subtitle");
+    const centralTheme = document.querySelector(".center-theme");
 
-        return false;
+    if (title) title.textContent = site.title;
+    if (subtitle) subtitle.textContent = site.subtitle;
 
-    } finally {
-
-        appState.loading = false;
-
+    if (centralTheme) {
+      centralTheme.textContent = site.centralTheme;
     }
 
-}
+    document.title = `${site.title} | ${site.subtitle}`;
+  }
 
+  // ---------------------------------------
+  // CREATE THE TEN TOPIC BRANCHES
+  // ---------------------------------------
 
-/* =========================================
-   04. UPDATE WEBSITE INFORMATION
-========================================= */
-
-function updateSiteInformation(data) {
-
-    const total = data.topics.length;
-
-    if (elements.footer) {
-
-        elements.footer.innerHTML = `
-            <span>
-                <i class="fa-solid fa-circle-info"></i>
-                Each topic contains expandable learning materials.
-            </span>
-
-            <span>${total} Learning Areas</span>
-        `;
-
+  function createTopicNodes() {
+    if (!elements.canvas) {
+      throw new Error("Mind map canvas was not found.");
     }
 
-}
+    // Remove previously generated topic nodes.
+    elements.canvas
+      .querySelectorAll(".topic-node")
+      .forEach(node => node.remove());
 
+    topics.forEach(topic => {
+      const button = document.createElement("button");
 
-/* =========================================
-   05. FIND TOPIC BY ID
-========================================= */
+      button.type = "button";
+      button.className = `topic-node node-${topic.number}`;
+      button.dataset.topic = topic.id;
 
-function getTopic(topicId) {
+      button.setAttribute(
+        "aria-label",
+        `Open topic ${topic.number}: ${topic.title}`
+      );
 
-    return appState.topics.find(
-        topic => topic.id === topicId
-    );
+      const icon = document.createElement("i");
+      icon.className = `fa-solid ${topic.icon}`;
+      icon.setAttribute("aria-hidden", "true");
 
-}
+      const content = document.createElement("span");
+      content.className = "topic-node-content";
 
+      const number = document.createElement("span");
+      number.className = "topic-node-number";
+      number.textContent = topic.number;
 
-/* =========================================
-   06. OPEN EXPLANATION MODAL
-========================================= */
+      const title = document.createElement("span");
+      title.className = "topic-node-title";
+      title.textContent = topic.title;
 
-function openTopicModal(topicId) {
+      const category = document.createElement("span");
+      category.className = "topic-node-category";
+      category.textContent = topic.category;
 
-    const topic = getTopic(topicId);
+      content.append(number, title, category);
+      button.append(icon, content);
 
-    if (!topic) {
+      button.addEventListener("click", () => {
+        openTopic(topic.id);
+      });
 
-        console.warn(
-            `Topic not found: ${topicId}`
-        );
-
-        return;
-
-    }
-
-    appState.previousFocus = document.activeElement;
-    appState.activeTopic = topic;
-
-    // Update modal heading
-
-    elements.modalTitle.textContent = topic.title;
-
-    elements.modalCategory.textContent =
-        `${topic.number} · ${topic.category}`;
-
-    // Update explanation
-
-    elements.modalDescription.textContent =
-        topic.description;
-
-    // Update icon
-
-    elements.modalIcon.innerHTML = `
-        <i class="fa-solid ${topic.icon || "fa-book-open"}"></i>
-    `;
-
-    // Render learning points
-
-    renderLearningPoints(topic.keyPoints);
-
-    // Render related subtopics
-
-    renderSubtopics(topic.subtopics);
-
-    // Display modal
-
-    elements.modal.classList.add("active");
-
-    elements.modal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-    // Prevent background scrolling
-
-    document.body.style.overflow = "hidden";
-
-    // Focus close button for accessibility
-
-    elements.closeModal.focus();
-
-}
-
-
-/* =========================================
-   07. RENDER LEARNING POINTS
-========================================= */
-
-function renderLearningPoints(points = []) {
-
-    elements.modalPoints.innerHTML = "";
-
-    if (!points.length) {
-
-        elements.modalPoints.textContent =
-            "Learning points will be added soon.";
-
-        return;
-
-    }
-
-    const fragment = document.createDocumentFragment();
-
-    points.forEach(point => {
-
-        const item = document.createElement("div");
-
-        item.className = "learning-point";
-
-        const icon = document.createElement("i");
-
-        icon.className = "fa-solid fa-check";
-
-        const text = document.createElement("span");
-
-        text.textContent = point;
-
-        item.append(icon, text);
-
-        fragment.appendChild(item);
-
+      elements.canvas.appendChild(button);
     });
+  }
 
-    elements.modalPoints.appendChild(fragment);
+  // ---------------------------------------
+  // DRAW CONNECTING LINES
+  // ---------------------------------------
 
-}
-
-
-/* =========================================
-   08. RENDER RELATED SUBTOPICS
-========================================= */
-
-function renderSubtopics(subtopics = []) {
-
-    elements.modalSubtopics.innerHTML = "";
-
-    if (!subtopics.length) {
-
-        elements.modalSubtopics.textContent =
-            "Related topics will be added soon.";
-
-        return;
-
-    }
-
-    const fragment = document.createDocumentFragment();
-
-    subtopics.forEach(subtopic => {
-
-        const tag = document.createElement("span");
-
-        tag.className = "subtopic-tag";
-
-        tag.textContent = subtopic;
-
-        fragment.appendChild(tag);
-
-    });
-
-    elements.modalSubtopics.appendChild(fragment);
-
-}
-
-
-/* =========================================
-   09. CLOSE EXPLANATION MODAL
-========================================= */
-
-function closeTopicModal() {
-
-    if (!elements.modal.classList.contains("active")) {
-        return;
-    }
-
-    elements.modal.classList.remove("active");
-
-    elements.modal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    document.body.style.overflow = "";
-
-    appState.activeTopic = null;
-
-    // Restore keyboard focus
-
-    if (
-        appState.previousFocus &&
-        document.contains(appState.previousFocus)
-    ) {
-
-        appState.previousFocus.focus();
-
-    }
-
-}
-
-
-/* =========================================
-   10. CLICK ON MIND MAP TOPICS
-========================================= */
-
-function initializeTopicClicks() {
-
-    elements.topicNodes.forEach(node => {
-
-        node.addEventListener("click", () => {
-
-            const topicId = node.dataset.topic;
-
-            openTopicModal(topicId);
-
-        });
-
-    });
-
-}
-
-
-/* =========================================
-   11. MODAL INTERACTIONS
-========================================= */
-
-function initializeModalControls() {
-
-    // Close button
-
-    elements.closeModal.addEventListener(
-        "click",
-        closeTopicModal
-    );
-
-    // Done button
-
-    elements.modalDone.addEventListener(
-        "click",
-        closeTopicModal
-    );
-
-    // Close when clicking outside modal content
-
-    elements.modal.addEventListener(
-        "click",
-        event => {
-
-            if (event.target === elements.modal) {
-
-                closeTopicModal();
-
-            }
-
-        }
-    );
-
-    // Escape key
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Escape" &&
-                elements.modal.classList.contains("active")
-            ) {
-
-                closeTopicModal();
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================
-   12. DRAW SVG CONNECTING LINES
-========================================= */
-
-function drawMindMapConnections() {
+  function drawMindMapConnections() {
+    if (!elements.canvas || !elements.center) return;
 
     const canvas = elements.canvas;
 
-    const center = elements.center;
-
-    if (!canvas || !center) {
-        return;
+    if (connectorSvg) {
+      connectorSvg.remove();
     }
 
-    // Remove previous SVG layer
+    const svgNS = "http://www.w3.org/2000/svg";
 
-    const existingSVG = canvas.querySelector(
-        ".mindmap-connections"
-    );
+    connectorSvg = document.createElementNS(svgNS, "svg");
 
-    if (existingSVG) {
-        existingSVG.remove();
-    }
+    connectorSvg.classList.add("mindmap-connectors");
 
-    // Create SVG layer
+    connectorSvg.setAttribute("aria-hidden", "true");
 
-    const svg = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "svg"
-    );
+    connectorSvg.style.position = "absolute";
+    connectorSvg.style.top = "0";
+    connectorSvg.style.left = "0";
+    connectorSvg.style.width = "100%";
+    connectorSvg.style.height = "100%";
+    connectorSvg.style.pointerEvents = "none";
+    connectorSvg.style.zIndex = "2";
+    connectorSvg.style.overflow = "visible";
 
-    svg.classList.add("mindmap-connections");
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
 
-    svg.setAttribute("width", canvas.offsetWidth);
-    svg.setAttribute("height", canvas.offsetHeight);
+    connectorSvg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+    connectorSvg.setAttribute("preserveAspectRatio", "none");
 
-    svg.setAttribute(
-        "viewBox",
-        `0 0 ${canvas.offsetWidth} ${canvas.offsetHeight}`
-    );
-
-    svg.setAttribute("aria-hidden", "true");
-
-    Object.assign(svg.style, {
-        position: "absolute",
-        inset: "0",
-        width: "100%",
-        height: "100%",
-        pointerEvents: "none",
-        overflow: "visible",
-        zIndex: "2"
-    });
+    canvas.prepend(connectorSvg);
 
     const canvasRect = canvas.getBoundingClientRect();
 
-    const centerRect = center.getBoundingClientRect();
+    // Convert screen coordinates into canvas coordinates.
+    // This also accounts for CSS scaling on mobile.
+    const scaleX = width / canvasRect.width;
+    const scaleY = height / canvasRect.height;
 
-    // Calculate central hub coordinates
+    function getCenter(element) {
+      const rect = element.getBoundingClientRect();
 
-    const centerX =
-        centerRect.left -
-        canvasRect.left +
-        centerRect.width / 2;
-
-    const centerY =
-        centerRect.top -
-        canvasRect.top +
-        centerRect.height / 2;
-
-    // Draw one connector for each topic
-
-    elements.topicNodes.forEach(node => {
-
-        const nodeRect = node.getBoundingClientRect();
-
-        const nodeX =
-            nodeRect.left -
-            canvasRect.left +
-            nodeRect.width / 2;
-
-        const nodeY =
-            nodeRect.top -
-            canvasRect.top +
-            nodeRect.height / 2;
-
-        // Determine where line meets node
-
-        const dx = nodeX - centerX;
-
-        const dy = nodeY - centerY;
-
-        const distance = Math.sqrt(
-            dx * dx + dy * dy
-        );
-
-        if (!distance) return;
-
-        const unitX = dx / distance;
-        const unitY = dy / distance;
-
-        const centerRadius = centerRect.width / 2;
-
-        const nodeRadius = 8;
-
-        const startX =
-            centerX + unitX * centerRadius;
-
-        const startY =
-            centerY + unitY * centerRadius;
-
-        const endX =
-            nodeX - unitX * nodeRadius;
-
-        const endY =
-            nodeY - unitY * nodeRadius;
-
-        // Create connector path
-
-        const path = document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "path"
-        );
-
-        const curveOffset = 0.12;
-
-        const controlX =
-            (startX + endX) / 2 -
-            dy * curveOffset;
-
-        const controlY =
-            (startY + endY) / 2 +
-            dx * curveOffset;
-
-        path.setAttribute(
-            "d",
-            `M ${startX} ${startY} Q ${controlX} ${controlY} ${endX} ${endY}`
-        );
-
-        path.setAttribute(
-            "fill",
-            "none"
-        );
-
-        path.setAttribute(
-            "stroke",
-            "rgba(49, 91, 112, 0.38)"
-        );
-
-        path.setAttribute(
-            "stroke-width",
-            "1.8"
-        );
-
-        path.setAttribute(
-            "stroke-linecap",
-            "round"
-        );
-
-        svg.appendChild(path);
-
-    });
-
-    // Insert lines behind the nodes
-
-    canvas.prepend(svg);
-
-}
-
-
-/* =========================================
-   13. MAP ERROR MESSAGE
-========================================= */
-
-function showMapError(message) {
-
-    const errorBox = document.createElement("div");
-
-    errorBox.className = "map-error";
-
-    errorBox.textContent = message;
-
-    errorBox.style.cssText = `
-        padding: 20px;
-        margin: 20px;
-        background: #FCEEEE;
-        color: #8D3030;
-        border-radius: 12px;
-        text-align: center;
-        font-size: 13px;
-    `;
-
-    if (elements.canvas) {
-
-        elements.canvas.appendChild(errorBox);
-
+      return {
+        x: (rect.left + rect.width / 2 - canvasRect.left) * scaleX,
+        y: (rect.top + rect.height / 2 - canvasRect.top) * scaleY
+      };
     }
 
-}
+    const center = getCenter(elements.center);
 
+    topics.forEach(topic => {
+      const node = canvas.querySelector(
+        `[data-topic="${topic.id}"]`
+      );
 
-/* =========================================
-   14. INITIALIZE APPLICATION
-========================================= */
+      if (!node) return;
 
-async function initializeApp() {
+      const target = getCenter(node);
 
-    initializeTopicClicks();
+      const line = document.createElementNS(svgNS, "line");
 
-    initializeModalControls();
+      line.setAttribute("x1", center.x);
+      line.setAttribute("y1", center.y);
+      line.setAttribute("x2", target.x);
+      line.setAttribute("y2", target.y);
 
-    const loaded = await loadTrainingData();
+      line.setAttribute("stroke", "#AEB7C0");
+      line.setAttribute("stroke-width", "1.5");
+      line.setAttribute("stroke-opacity", "0.7");
 
-    if (!loaded) {
-        return;
+      connectorSvg.appendChild(line);
+    });
+  }
+
+  // ---------------------------------------
+  // OPEN TOPIC MODAL
+  // ---------------------------------------
+
+  function openTopic(topicId) {
+    const topic = topics.find(item => item.id === topicId);
+
+    if (!topic || !elements.topicModal) return;
+
+    elements.modalTitle.textContent = topic.title;
+    elements.modalCategory.textContent = topic.category;
+    elements.modalDescription.textContent = topic.description;
+
+    // Update modal icon safely.
+    if (elements.modalIcon) {
+      elements.modalIcon.className = "";
+      elements.modalIcon.classList.add("modal-icon");
+
+      const icon = document.createElement("i");
+      icon.classList.add("fa-solid", ...topic.icon.split(" "));
+      icon.setAttribute("aria-hidden", "true");
+
+      elements.modalIcon.replaceChildren(icon);
     }
 
-    // Wait for layout calculations
+    // Populate key learning points.
+    populateList(elements.modalPoints, topic.keyPoints);
 
-    requestAnimationFrame(() => {
+    // Populate subtopics.
+    populateList(elements.modalSubtopics, topic.subtopics);
 
-        drawMindMapConnections();
+    elements.topicModal.classList.add("active");
+    elements.topicModal.setAttribute("aria-hidden", "false");
 
+    document.body.classList.add("modal-open");
+
+    if (elements.closeModal) {
+      elements.closeModal.focus();
+    }
+  }
+
+  // ---------------------------------------
+  // POPULATE MODAL LISTS
+  // ---------------------------------------
+
+  function populateList(container, items) {
+    if (!container) return;
+
+    container.replaceChildren();
+
+    if (!Array.isArray(items)) return;
+
+    items.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      container.appendChild(li);
     });
+  }
 
-    console.log(
-        "Care & Knowledge Training Hub initialized."
-    );
+  // ---------------------------------------
+  // CLOSE MODAL
+  // ---------------------------------------
 
-}
+  function closeTopicModal() {
+    if (!elements.topicModal) return;
 
+    elements.topicModal.classList.remove("active");
+    elements.topicModal.setAttribute("aria-hidden", "true");
 
-/* =========================================
-   15. RESPONSIVE CONNECTION UPDATES
-========================================= */
+    document.body.classList.remove("modal-open");
+  }
 
-let resizeFrame = null;
+  if (elements.closeModal) {
+    elements.closeModal.addEventListener("click", closeTopicModal);
+  }
 
-window.addEventListener("resize", () => {
+  if (elements.modalDone) {
+    elements.modalDone.addEventListener("click", closeTopicModal);
+  }
 
-    cancelAnimationFrame(resizeFrame);
+  // Close when clicking outside the modal content.
+  if (elements.topicModal) {
+    elements.topicModal.addEventListener("click", event => {
+      if (event.target === elements.topicModal) {
+        closeTopicModal();
+      }
+    });
+  }
+
+  // Close with Escape key.
+  document.addEventListener("keydown", event => {
+    if (
+      event.key === "Escape" &&
+      elements.topicModal?.classList.contains("active")
+    ) {
+      closeTopicModal();
+    }
+  });
+
+  // ---------------------------------------
+  // REDRAW CONNECTORS WHEN SCREEN CHANGES
+  // ---------------------------------------
+
+  let resizeFrame = null;
+
+  function scheduleConnectorRedraw() {
+    if (resizeFrame) {
+      cancelAnimationFrame(resizeFrame);
+    }
 
     resizeFrame = requestAnimationFrame(() => {
-
-        drawMindMapConnections();
-
+      drawMindMapConnections();
+      resizeFrame = null;
     });
+  }
 
+  window.addEventListener("resize", scheduleConnectorRedraw);
+
+  // Recalculate after the page has finished loading.
+  window.addEventListener("load", scheduleConnectorRedraw);
+
+  // ---------------------------------------
+  // DISPLAY ERROR
+  // ---------------------------------------
+
+  function showMapError(message) {
+    if (!elements.canvas) return;
+
+    const error = document.createElement("p");
+
+    error.className = "mindmap-error";
+    error.textContent = message;
+
+    elements.canvas.appendChild(error);
+  }
+
+  // ---------------------------------------
+  // START APPLICATION
+  // ---------------------------------------
+
+  loadTrainingData();
 });
-
-
-/* =========================================
-   16. START APPLICATION
-========================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    initializeApp
-);
