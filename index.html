@@ -2,529 +2,440 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-    <meta name="theme-color" content="#F5F5F7">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-    <meta name="description" content="An interactive learning mind map exploring patient-centred healthcare, HIV services, prevention and responsive healthcare.">
+  <meta
+    name="theme-color"
+    content="#F5F5F7"
+  >
 
-    <title>Patient-Centred Healthcare | Training Hub</title>
+  <meta
+    name="description"
+    content="Care & Knowledge - Healthcare Training Hub. Integrated Healthcare Monitoring, Evaluation and Data Management."
+  >
 
-    <!-- External stylesheet -->
-    <link rel="stylesheet" href="style.css">
+  <title>Care & Knowledge | Healthcare Training Hub</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- FONT AWESOME -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <!-- MAIN STYLESHEET -->
+  <link rel="stylesheet" href="./style.css">
+
 </head>
 
 <body>
 
-    <!-- =================================
-         WEBSITE HEADER
-    ================================== -->
+  <!-- =========================================
+       HEADER
+  ========================================== -->
 
-    <header class="site-header">
+  <header class="site-header">
 
-        <a href="#" class="brand">
-            <span class="brand-icon">
-                <i class="fa-solid fa-heart-pulse"></i>
-            </span>
+    <div class="header-inner">
 
-            <span class="brand-name">
-                <strong>CARE & KNOWLEDGE</strong>
-                <small>Healthcare Training Hub</small>
-            </span>
-        </a>
+      <a href="#" class="brand" aria-label="Care and Knowledge home">
 
-        <nav class="main-nav">
-            <a href="#home" class="active">Overview</a>
-            <a href="#mindmap">Mind Map</a>
-            <a href="#about">About Training</a>
-        </nav>
-
-        <button class="header-action" type="button">
-            <i class="fa-solid fa-book-open"></i>
-            Learning Guide
-        </button>
-
-    </header>
-
-
-    <!-- =================================
-         MAIN CONTENT
-    ================================== -->
-
-    <main>
-
-        <!-- HERO SECTION -->
-
-        <section class="hero" id="home">
-
-            <div class="hero-content">
-
-                <span class="eyebrow">
-                    HEALTHCARE WORKERS TRAINING
-                </span>
-
-                <h1>
-                    Understanding Care.
-                    <span>Connecting Knowledge.</span>
-                </h1>
-
-                <p>
-                    Explore the interconnected principles of patient rights,
-                    individual differences, HIV services, prevention and
-                    responsive healthcare through an interactive learning map.
-                </p>
-
-                <a href="#mindmap" class="explore-button">
-                    Explore the Mind Map
-                    <i class="fa-solid fa-arrow-down"></i>
-                </a>
-
-            </div>
-
-            <div class="hero-decoration">
-                <i class="fa-solid fa-hand-holding-medical"></i>
-            </div>
-
-        </section>
-
-
-        <!-- =================================
-             MIND MAP SECTION
-        ================================== -->
-
-        <section class="mindmap-section" id="mindmap">
-
-            <div class="section-heading">
-
-                <div>
-                    <span class="eyebrow">INTERACTIVE LEARNING MAP</span>
-
-                    <h2>
-                        The Healthcare
-                        <span>Knowledge Map</span>
-                    </h2>
-
-                    <p>
-                        Select any branch to explore its explanations
-                        and learning points.
-                    </p>
-                </div>
-
-                <div class="map-instruction">
-                    <i class="fa-solid fa-hand-pointer"></i>
-                    Click a topic to explore
-                </div>
-
-            </div>
-
-
-            <!-- MIND MAP CONTAINER -->
-
-            <div class="mindmap-container">
-
-                <div class="mindmap-canvas">
-
-
-                    <!-- CENTRAL NODE -->
-
-                    <div class="mindmap-center">
-
-                        <div class="center-icon">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </div>
-
-                        <span class="center-label">
-                            CENTRAL THEME
-                        </span>
-
-                        <h3>
-                            Responsive &
-                            Patient-Centred
-                            Healthcare
-                        </h3>
-
-                        <p>
-                            Respect. Communication.
-                            Dignity. Quality of Care.
-                        </p>
-
-                    </div>
-
-
-                    <!-- BRANCH 01 -->
-
-                    <button
-                        class="mindmap-node node-01"
-                        type="button"
-                        data-topic="patients-rights">
-
-                        <span class="node-icon">
-                            <i class="fa-solid fa-shield-heart"></i>
-                        </span>
-
-                        <span class="node-content">
-                            <strong>Patients' Rights</strong>
-                            <small>01 · Patient protection</small>
-                        </span>
-
-                        <i class="fa-solid fa-chevron-right node-arrow"></i>
-
-                    </button>
-
-
-                    <!-- BRANCH 02 -->
-
-                    <button
-                        class="mindmap-node node-02"
-                        type="button"
-                        data-topic="individual-differences">
-
-                        <span class="node-icon">
-                            <i class="fa-solid fa-users"></i>
-                        </span>
-
-                        <span class="node-content">
-                            <strong>Individual Differences</strong>
-                            <small>02 · Attitudes & behaviours</small>
-                        </span>
-
-                        <i class="fa-solid fa-chevron-right node-arrow"></i>
-
-                    </button>
-
-
-                    <!-- BRANCH 03 -->
-
-                    <button
-                        class="mindmap-node node-03"
-                        type="button"
-                        data-topic="sexual-practices">
-
-                        <span class="node-icon">
-                            <i class="fa-solid fa-book-open"></i>
-                        </span>
-
-                        <span class="node-content">
-                            <strong>Common Sexual Practices</strong>
-                            <small>03 · Understanding practices</small>
-                        </span>
-
-                        <i class="fa-solid fa-chevron-right node-arrow"></i>
-
-                    </button>
-
-
-                    <!-- BRANCH 04 -->
-
-                    <button
-                        class="mindmap-node node-04"
-                        type="button"
-                        data-topic="infection-risk">
-
-                        <span class="node-icon">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </span>
-
-                        <span class="node-content">
-                            <strong>Degree of Risk of Infection</strong>
-                            <small>04 · Infection risk awareness</small>
-                        </span>
-
-                        <i class="fa-solid fa-chevron-right node-arrow"></i>
-
-                    </button>
-
-
-                    <!-- BRANCH 05 -->
-
-                    <button
-                        class="mindmap-node node-05"
-                        type="button"
-                        data-topic="healthcare-messages">
-
-                        <span class="node-icon">
-                            <i class="fa-solid fa-message"></i>
-                        </span>
-
-                        <span class="node-content">
-                            <strong>Key Messages for Healthcare Workers</strong>
-                            <small>05 · Professional responsibilities</small>
-                        </span>
-
-                        <i class="fa-solid fa-chevron-right node-arrow"></i>
-
-                    </button>
-
-
-                    <!-- BRANCH 06 -->
-
-                    <button
-                        class="mindmap-node node-06"
-                        type="button"
-                        data-topic="comprehensive-hiv">
-
-                        <span class="node-icon">
-                            <i class="fa-solid fa-kit-medical"></i>
-                        </span>
-
-                        <span class="node-content">
-                            <strong>Comprehensive HIV Packages</strong>
-                            <small>06 · Integrated HIV services</small>
-                        </span>
-
-                        <i class="fa-solid fa-chevron-right node-arrow"></i>
-
-                    </button>
-
-
-                    <!-- BRANCH 07 -->
-
-                    <button
-                        class="mindmap-node node-07"
-                        type="button"
-                        data-topic="hts">
-
-                        <span class="node-icon">
-                            <i class="fa-solid fa-clipboard-check"></i>
-                        </span>
-
-                        <span class="node-content">
-                            <strong>HIV Testing Services (HTS)</strong>
-                            <small>07 · Testing & partner approaches</small>
-                        </span>
-
-                        <i class="fa-solid fa-chevron-right node-arrow"></i>
-
-                    </button>
-
-
-                    <!-- BRANCH 08 -->
-
-                    <button
-                        class="mindmap-node node-08"
-                        type="button"
-                        data-topic="hiv-prevention">
-
-                        <span class="node-icon">
-                            <i class="fa-solid fa-heart-circle-check"></i>
-                        </span>
-
-                        <span class="node-content">
-                            <strong>Comprehensive HIV Prevention</strong>
-                            <small>08 · Prevention services</small>
-                        </span>
-
-                        <i class="fa-solid fa-chevron-right node-arrow"></i>
-
-                    </button>
-
-
-                    <!-- BRANCH 09 -->
-
-                    <button
-                        class="mindmap-node node-09"
-                        type="button"
-                        data-topic="communication-skills">
-
-                        <span class="node-icon">
-                            <i class="fa-solid fa-comments"></i>
-                        </span>
-
-                        <span class="node-content">
-                            <strong>Good Communication Skills</strong>
-                            <small>09 · Responsive healthcare</small>
-                        </span>
-
-                        <i class="fa-solid fa-chevron-right node-arrow"></i>
-
-                    </button>
-
-
-                </div>
-
-            </div>
-
-            <div class="map-footer">
-
-                <span>
-                    <i class="fa-solid fa-circle-info"></i>
-                    Each topic contains expandable learning materials.
-                </span>
-
-                <span>09 Learning Areas</span>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================
-             ABOUT SECTION
-        ================================== -->
-
-        <section class="about-section" id="about">
-
-            <span class="eyebrow">THE PURPOSE</span>
-
-            <h2>
-                Knowledge should translate
-                into better patient care.
-            </h2>
-
-            <p>
-                This learning resource connects the principles of
-                patient-centred healthcare with HIV testing, prevention,
-                professional conduct and effective communication.
-            </p>
-
-        </section>
-
-    </main>
-
-
-    <!-- =================================
-         EXPLANATION MODAL
-    ================================== -->
-
-    <div
-        class="modal-overlay"
-        id="topicModal"
-        aria-hidden="true">
-
-        <div
-            class="topic-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modalTitle">
-
-            <!-- MODAL HEADER -->
-
-            <div class="modal-header">
-
-                <div class="modal-topic-icon" id="modalIcon">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-
-                <button
-                    class="modal-close"
-                    id="closeModal"
-                    type="button"
-                    aria-label="Close explanation">
-
-                    <i class="fa-solid fa-xmark"></i>
-
-                </button>
-
-            </div>
-
-
-            <!-- MODAL CONTENT -->
-
-            <div class="modal-body">
-
-                <span class="eyebrow" id="modalCategory">
-                    LEARNING AREA
-                </span>
-
-                <h2 id="modalTitle">
-                    Topic Title
-                </h2>
-
-                <p class="modal-description" id="modalDescription">
-                    Topic explanation will appear here.
-                </p>
-
-
-                <!-- KEY LEARNING POINTS -->
-
-                <div class="learning-points">
-
-                    <h3>
-                        <i class="fa-solid fa-lightbulb"></i>
-                        Key Learning Points
-                    </h3>
-
-                    <div id="modalPoints">
-                        <!-- Populated from data.json -->
-                    </div>
-
-                </div>
-
-
-                <!-- RELATED SUBTOPICS -->
-
-                <div class="related-topics">
-
-                    <h3>Explore Subtopics</h3>
-
-                    <div id="modalSubtopics">
-                        <!-- Populated from data.json -->
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- MODAL FOOTER -->
-
-            <div class="modal-footer">
-
-                <span>
-                    <i class="fa-solid fa-book-medical"></i>
-                    Healthcare Training Resource
-                </span>
-
-                <button
-                    type="button"
-                    id="modalDone">
-
-                    Done
-                    <i class="fa-solid fa-check"></i>
-
-                </button>
-
-            </div>
-
+        <div class="brand-icon">
+          <i class="fa-solid fa-book-medical"></i>
         </div>
+
+        <div class="brand-text">
+          <span class="site-title">Care & Knowledge</span>
+          <span class="site-subtitle">Healthcare Training Hub</span>
+        </div>
+
+      </a>
+
+      <div class="header-label">
+        <span class="status-dot"></span>
+        <span>Learning & Development</span>
+      </div>
 
     </div>
 
+  </header>
 
-    <!-- =================================
-         FOOTER
-    ================================== -->
 
-    <footer class="site-footer">
+  <!-- =========================================
+       MAIN CONTENT
+  ========================================== -->
 
-        <div class="footer-brand">
-            CARE & KNOWLEDGE
+  <main>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero-section">
+
+      <div class="hero-content">
+
+        <span class="eyebrow">
+          <i class="fa-solid fa-graduation-cap"></i>
+          HEALTHCARE PROFESSIONAL DEVELOPMENT
+        </span>
+
+        <h1>
+          Understanding the systems behind
+          <span>better healthcare.</span>
+        </h1>
+
+        <p>
+          Explore the principles, tools and practical knowledge
+          required for integrated healthcare monitoring,
+          evaluation and data management.
+        </p>
+
+        <div class="hero-meta">
+
+          <span>
+            <i class="fa-solid fa-diagram-project"></i>
+            Interactive learning map
+          </span>
+
+          <span>
+            <i class="fa-solid fa-book-open"></i>
+            10 learning topics
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         MIND MAP SECTION
+    ========================================== -->
+
+    <section class="learning-section">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="eyebrow">YOUR LEARNING JOURNEY</span>
+
+          <h2>Explore the training framework</h2>
+
+          <p>
+            Select any topic to explore its description,
+            key learning points and subtopics.
+          </p>
+        </div>
+
+        <div class="topic-count">
+          <strong>10</strong>
+          <span>Core topics</span>
+        </div>
+
+      </div>
+
+
+      <!-- MAP LEGEND -->
+
+      <div class="map-legend">
+
+        <span>
+          <span class="legend-dot central-dot"></span>
+          Central theme
+        </span>
+
+        <span>
+          <span class="legend-dot topic-dot"></span>
+          Learning topics
+        </span>
+
+        <span>
+          <i class="fa-solid fa-hand-pointer"></i>
+          Select a branch to explore
+        </span>
+
+      </div>
+
+
+      <!-- MAP VIEWPORT -->
+
+      <div class="mindmap-container">
+
+        <div
+          class="mindmap-canvas"
+          id="mindmapCanvas"
+          aria-label="Interactive healthcare training mind map"
+        >
+
+          <!-- CENTRAL HUB -->
+
+          <div class="mindmap-center">
+
+            <div class="center-icon">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+
+            <span class="center-label">
+              CENTRAL THEME
+            </span>
+
+            <h3 class="center-theme">
+              Integrated Healthcare Monitoring,
+              Evaluation and Data Management
+            </h3>
+
+            <span class="center-footer">
+              CARE & KNOWLEDGE
+            </span>
+
+          </div>
+
+          <!-- TOPIC NODES ARE GENERATED FROM data.json -->
+
+        </div>
+
+      </div>
+
+
+      <!-- MAP FOOTER -->
+
+      <div class="map-footer">
+
+        <div class="map-footer-icon">
+          <i class="fa-solid fa-lightbulb"></i>
         </div>
 
         <p>
-            An interactive learning resource for responsive,
-            respectful and patient-centred healthcare.
+          <strong>Learning tip:</strong>
+          Start with the foundational concepts and follow
+          the connected topics to understand how the different
+          monitoring and reporting tools work together.
         </p>
 
-        <small>
-            Educational resource · Healthcare Training
-        </small>
+      </div>
 
-    </footer>
+    </section>
 
 
-    <!-- EXTERNAL JAVASCRIPT -->
+    <!-- =========================================
+         ABOUT SECTION
+    ========================================== -->
 
-    <script src="script.js"></script>
+    <section class="about-section">
+
+      <div class="about-content">
+
+        <span class="eyebrow">ABOUT THIS LEARNING HUB</span>
+
+        <h2>Knowledge becomes valuable when it informs action.</h2>
+
+        <p>
+          Care & Knowledge is an interactive learning resource
+          designed to help healthcare workers explore Monitoring
+          and Evaluation, routine data management, programme
+          reporting and practical healthcare documentation.
+        </p>
+
+        <p>
+          The training framework brings together the major
+          subject areas into one connected learning experience,
+          making it easier to explore individual topics and
+          understand their relationships.
+        </p>
+
+      </div>
+
+      <div class="about-decoration">
+
+        <div class="decoration-card">
+          <i class="fa-solid fa-database"></i>
+          <span>Reliable Data</span>
+        </div>
+
+        <div class="decoration-card">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Better Monitoring</span>
+        </div>
+
+        <div class="decoration-card">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <span>Improved Reporting</span>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       TOPIC EXPLANATION MODAL
+  ========================================== -->
+
+  <div
+    id="topicModal"
+    class="topic-modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="modalTitle"
+  >
+
+    <div class="topic-modal">
+
+      <!-- MODAL HEADER -->
+
+      <div class="modal-header">
+
+        <div class="modal-heading-group">
+
+          <div class="modal-icon" id="modalIcon">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+
+          <div class="modal-heading-text">
+
+            <span id="modalCategory">
+              Training Topic
+            </span>
+
+            <h2 id="modalTitle">
+              Topic Title
+            </h2>
+
+          </div>
+
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          id="closeModal"
+          aria-label="Close topic explanation"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+      </div>
+
+
+      <!-- MODAL BODY -->
+
+      <div class="modal-body">
+
+        <!-- DESCRIPTION -->
+
+        <section class="modal-section">
+
+          <h3>
+            <i class="fa-solid fa-circle-info"></i>
+            Overview
+          </h3>
+
+          <p id="modalDescription"></p>
+
+        </section>
+
+
+        <!-- KEY POINTS -->
+
+        <section class="modal-section">
+
+          <h3>
+            <i class="fa-solid fa-bookmark"></i>
+            Key Learning Points
+          </h3>
+
+          <ul id="modalPoints" class="modal-points">
+          </ul>
+
+        </section>
+
+
+        <!-- SUBTOPICS -->
+
+        <section class="modal-section">
+
+          <h3>
+            <i class="fa-solid fa-list-ul"></i>
+            Topics Covered
+          </h3>
+
+          <ul id="modalSubtopics" class="modal-subtopics">
+          </ul>
+
+        </section>
+
+      </div>
+
+
+      <!-- MODAL FOOTER -->
+
+      <div class="modal-footer">
+
+        <span>
+          <i class="fa-solid fa-graduation-cap"></i>
+          Care & Knowledge
+        </span>
+
+        <button
+          type="button"
+          id="modalDone"
+          class="modal-done"
+        >
+          Close
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <i class="fa-solid fa-book-medical"></i>
+        <span>Care & Knowledge</span>
+      </div>
+
+      <p>
+        A healthcare learning and knowledge-sharing resource.
+      </p>
+
+      <span class="copyright">
+        © 2026 Care & Knowledge. All rights reserved.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- MAIN JAVASCRIPT -->
+  <script src="./script.js" defer></script>
 
 </body>
 </html>
