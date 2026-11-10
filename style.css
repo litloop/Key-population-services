@@ -1,981 +1,1145 @@
-/* =========================================================
-CARE & KNOWLEDGE
-HEALTHCARE TRAINING HUB
-Main Stylesheet
-========================================================= */
-
-/* =========================================================
-
-1. DESIGN SYSTEM
-    ========================================================= */
+/* =========================================
+   01. ROOT VARIABLES & RESET
+========================================= */
 
 :root {
-–bg: #f5f5f7;
-–surface: #ffffff;
-–surface-soft: #f1f3f5;
+    --bg: #F5F5F7;
+    --surface: #FFFFFF;
+    --surface-glass: rgba(255, 255, 255, 0.78);
 
-–text: #171719;
-–text-secondary: #6e6e73;
-–border: #e5e5e8;
+    --text: #171719;
+    --secondary: #6E6E73;
+    --muted: #98989D;
 
-–accent: #315b70;
-–accent-soft: #eef2f4;
+    --accent: #315B70;
+    --accent-light: #EAF1F4;
+    --line: #C8D4DA;
 
-–shadow-sm: 0 4px 15px rgba(23, 23, 25, 0.04);
-–shadow-md: 0 10px 30px rgba(23, 23, 25, 0.07);
+    --border: rgba(0, 0, 0, 0.07);
 
-–radius-sm: 10px;
-–radius-md: 16px;
-–radius-lg: 24px;
+    --shadow:
+        0 12px 40px rgba(25, 35, 45, 0.07);
 
-–container: 1200px;
+    --soft-shadow:
+        0 5px 18px rgba(25, 35, 45, 0.06);
 
-–font-body: ‘DM Sans’, sans-serif;
-–font-heading: ‘Playfair Display’, serif;
-
-–transition: 180ms ease;
+    --radius: 20px;
 }
-
-/* =========================================================
-2. RESET
-========================================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    }
+}
 
 html {
-scroll-behavior: smooth;
-scroll-padding-top: 90px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
-font-family: var(–font-body);
-background: var(–bg);
-color: var(–text);
-line-height: 1.6;
--webkit-font-smoothing: antialiased;
-overflow-x: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 button,
-input,
-textarea,
-select {
-font: inherit;
+a {
+    font: inherit;
 }
 
 button {
-cursor: pointer;
+    cursor: pointer;
 }
 
 a {
-color: inherit;
-text-decoration: none;
+    text-decoration: none;
+    color: inherit;
 }
 
-img {
-display: block;
-max-width: 100%;
+::selection {
+    background: #DCE8ED;
+    color: #193B50;
 }
 
-ul {
-list-style: none;
-}
 
-.container {
-width: min(100% - 40px, var(–container));
-margin-inline: auto;
-}
-
-/* =========================================================
-3. TYPOGRAPHY
-========================================================= */
-
-h1,
-h2,
-h3,
-h4 {
-font-family: var(–font-heading);
-font-weight: 600;
-line-height: 1.2;
-color: var(–text);
-}
-
-h1 {
-font-size: clamp(2.5rem, 6vw, 4.5rem);
-}
-
-h2 {
-font-size: clamp(2rem, 4vw, 3rem);
-}
-
-h3 {
-font-size: 1.35rem;
-}
-
-p {
-color: var(–text-secondary);
-}
-
-/* =========================================================
-4. BUTTONS
-========================================================= */
-
-.btn {
-display: inline-flex;
-align-items: center;
-justify-content: center;
-gap: 9px;
-
-padding: 13px 21px;
-
-border: 1px solid transparent;
-border-radius: 12px;
-
-font-size: 14px;
-font-weight: 600;
-
-transition: var(–transition);
-}
-
-.btn-primary {
-background: var(–text);
-color: #ffffff;
-}
-
-.btn-primary:hover {
-background: #343438;
-transform: translateY(-2px);
-}
-
-.btn-secondary {
-background: #ffffff;
-border-color: var(–border);
-color: var(–text);
-}
-
-.btn-secondary:hover {
-border-color: #b9c1c7;
-background: var(–surface-soft);
-}
-
-/* =========================================================
-5. HEADER / NAVIGATION
-========================================================= */
+/* =========================================
+   02. HEADER
+========================================= */
 
 .site-header {
-position: sticky;
-top: 0;
-z-index: 100;
+    width: 100%;
+    height: 82px;
+    padding: 0 7%;
 
-background: rgba(255, 255, 255, 0.82);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-backdrop-filter: blur(18px);
--webkit-backdrop-filter: blur(18px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
-border-bottom: 1px solid rgba(229, 229, 232, 0.8);
-}
+    background: rgba(245, 245, 247, 0.86);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
-.navbar {
-min-height: 76px;
-
-display: flex;
-align-items: center;
-justify-content: space-between;
-
-gap: 25px;
+    border-bottom: 1px solid var(--border);
 }
 
 .brand {
-display: flex;
-align-items: center;
-gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .brand-icon {
-width: 42px;
-height: 42px;
+    width: 43px;
+    height: 43px;
 
-display: flex;
-align-items: center;
-justify-content: center;
+    display: grid;
+    place-items: center;
 
-border-radius: 13px;
+    background: var(--accent);
+    color: white;
 
-background: var(–accent-soft);
-color: var(–accent);
-
-font-size: 19px;
-}
-
-.brand-text {
-display: flex;
-flex-direction: column;
+    border-radius: 14px;
+    font-size: 19px;
 }
 
 .brand-name {
-font-weight: 700;
-font-size: 16px;
-line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
 }
 
-.brand-subtitle {
-color: var(–text-secondary);
-font-size: 11px;
+.brand-name strong {
+    font-size: 13px;
+    letter-spacing: 1px;
 }
 
-.nav-links {
-display: flex;
-align-items: center;
-gap: 28px;
+.brand-name small {
+    font-size: 11px;
+    color: var(--secondary);
 }
 
-.nav-links a {
-color: var(–text-secondary);
-font-size: 13px;
-font-weight: 500;
-transition: var(–transition);
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-color: var(–text);
+.main-nav a {
+    font-size: 13px;
+    color: var(--secondary);
+    transition: 0.25s;
 }
 
-/* =========================================================
-6. HERO SECTION
-========================================================= */
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--accent);
+}
+
+.header-action {
+    border: 1px solid var(--border);
+    background: white;
+
+    padding: 11px 17px;
+    border-radius: 30px;
+
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.header-action:hover {
+    background: var(--accent);
+    color: white;
+}
+
+
+/* =========================================
+   03. HERO
+========================================= */
 
 .hero {
-padding: 105px 0 85px;
-text-align: center;
+    min-height: 390px;
+
+    padding: 80px 9%;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(49, 91, 112, 0.09),
+            transparent 35%
+        );
 }
 
 .hero-content {
-max-width: 850px;
-margin-inline: auto;
+    max-width: 690px;
+    position: relative;
+    z-index: 2;
 }
 
-.hero-eyebrow {
-display: inline-flex;
-align-items: center;
-gap: 8px;
+.eyebrow {
+    display: inline-block;
 
-margin-bottom: 22px;
-padding: 8px 14px;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
 
-border-radius: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 
-background: var(–accent-soft);
-color: var(–accent);
+    margin-bottom: 17px;
+}
 
-font-size: 11px;
-font-weight: 700;
-letter-spacing: 1.2px;
-text-transform: uppercase;
+.hero h1,
+.section-heading h2,
+.about-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: -1px;
 }
 
 .hero h1 {
-margin-bottom: 22px;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.13;
+    max-width: 650px;
 }
 
-.hero-description {
-max-width: 650px;
-margin: 0 auto;
-
-font-size: 16px;
-line-height: 1.9;
+.hero h1 span {
+    display: block;
+    color: var(--accent);
 }
 
-.hero-actions {
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-gap: 12px;
+.hero p {
+    margin-top: 20px;
 
-margin-top: 30px;
+    max-width: 570px;
+
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.9;
 }
 
-/* =========================================================
-7. SECTION HEADINGS
-========================================================= */
+.explore-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
 
-.section {
-padding: 85px 0;
+    margin-top: 27px;
+
+    background: var(--accent);
+    color: white;
+
+    padding: 14px 22px;
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.3s;
 }
 
-.section-header {
-max-width: 720px;
-margin: 0 auto 45px;
-text-align: center;
+.explore-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
 }
 
-.section-eyebrow {
-display: block;
-margin-bottom: 12px;
+.hero-decoration {
+    position: absolute;
+    right: 12%;
+    top: 50%;
 
-color: var(–accent);
+    transform: translateY(-50%);
 
-font-size: 11px;
-font-weight: 700;
-letter-spacing: 1.5px;
-text-transform: uppercase;
+    width: 230px;
+    height: 230px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    border: 1px solid rgba(49, 91, 112, 0.12);
+
+    color: rgba(49, 91, 112, 0.15);
+    font-size: 100px;
 }
 
-.section-header h2 {
-margin-bottom: 15px;
+.hero-decoration::before,
+.hero-decoration::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(49, 91, 112, 0.10);
+    border-radius: 50%;
 }
 
-.section-header p {
-font-size: 14px;
-line-height: 1.8;
+.hero-decoration::before {
+    inset: -30px;
 }
 
-/* =========================================================
-8. GENERAL CARDS
-========================================================= */
-
-.card {
-background: rgba(255, 255, 255, 0.85);
-border: 1px solid rgba(255, 255, 255, 0.9);
-
-border-radius: var(–radius-lg);
-padding: 25px;
-
-box-shadow: var(–shadow-sm);
-
-transition: var(–transition);
+.hero-decoration::after {
+    inset: -60px;
 }
 
-.card:hover {
-box-shadow: var(–shadow-md);
-transform: translateY(-3px);
+
+/* =========================================
+   04. MIND MAP SECTION
+========================================= */
+
+.mindmap-section {
+    padding: 75px 5% 60px;
 }
 
-.card-icon {
-width: 46px;
-height: 46px;
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 
-display: flex;
-align-items: center;
-justify-content: center;
-
-border-radius: 14px;
-
-background: var(–accent-soft);
-color: var(–accent);
-
-font-size: 19px;
-
-margin-bottom: 18px;
+    max-width: 1400px;
+    margin: 0 auto 45px;
 }
 
-.card h3 {
-margin-bottom: 10px;
+.section-heading h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.2;
 }
 
-.card p {
-font-size: 13px;
-line-height: 1.8;
+.section-heading h2 span {
+    color: var(--accent);
 }
 
-/* =========================================================
-9. TOPIC GRID
-========================================================= */
-
-.topics-grid {
-display: grid;
-grid-template-columns: repeat(3, minmax(0, 1fr));
-gap: 20px;
+.section-heading p {
+    color: var(--secondary);
+    font-size: 13px;
+    margin-top: 12px;
 }
 
-.topic-card {
-position: relative;
-overflow: hidden;
+.map-instruction {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 16px;
+
+    border: 1px solid var(--border);
+    background: white;
+
+    border-radius: 30px;
+
+    color: var(--secondary);
+    font-size: 11px;
 }
 
-.topic-card-number {
-display: block;
-margin-bottom: 15px;
 
-color: #a0a0a5;
-
-font-size: 11px;
-font-weight: 700;
-letter-spacing: 1px;
-}
-
-.topic-card-category {
-display: inline-block;
-margin-bottom: 12px;
-
-color: var(–accent);
-
-font-size: 10px;
-font-weight: 700;
-letter-spacing: 0.8px;
-text-transform: uppercase;
-}
-
-/* =========================================================
-10. RADIAL MIND MAP
-TEN-TOPIC GEOMETRY PRESERVED
-========================================================= */
-
-/* MAP VIEWPORT */
+/* =========================================
+   05. RADIAL MIND MAP CANVAS
+========================================= */
 
 .mindmap-container {
-width: 100%;
-max-width: 1500px;
-margin-inline: auto;
+    width: 100%;
+    max-width: 1500px;
 
-overflow-x: auto;
-overflow-y: hidden;
+    margin: 0 auto;
 
--webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    overflow-y: hidden;
 
-scrollbar-width: thin;
-scrollbar-color: #aeb7c0 transparent;
+    scrollbar-width: thin;
+    scrollbar-color: #BBC8CF transparent;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+    overscroll-behavior-x: contain;
+
+    border: 1px solid rgba(0, 0, 0, 0.045);
+    border-radius: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #FFFFFF 0%,
+            #F8FAFB 48%,
+            #F1F3F5 100%
+        );
+
+    box-shadow: var(--soft-shadow);
 }
-
-/* FIXED CANVAS */
 
 .mindmap-canvas {
-position: relative;
+    position: relative;
 
-width: 1200px;
-min-width: 1200px;
+    width: 1200px;
+    min-width: 1200px;
+    height: 1000px;
+    min-height: 1000px;
 
-height: 1000px;
-min-height: 1000px;
-
-margin-inline: auto;
-
-overflow: hidden;
-isolation: isolate;
+    margin: 0 auto;
+    overflow: hidden;
+    isolation: isolate;
 }
 
-/* CONNECTING LINES */
 
-.mindmap-connectors {
-position: absolute;
-inset: 0;
-
-width: 100%;
-height: 100%;
-
-z-index: 2;
-pointer-events: none;
-}
-
-/* CENTRAL HUB */
+/* =========================================
+   06. CENTRAL NODE
+========================================= */
 
 .mindmap-center {
-position: absolute;
+    position: absolute;
 
-left: 477.5px;
-top: 377.5px;
+    width: 245px;
+    height: 245px;
 
-width: 245px;
-height: 245px;
+    left: 477.5px;
+    top: 377.5px;
 
-border-radius: 50%;
+    border-radius: 50%;
 
-z-index: 5;
+    background: linear-gradient(
+        145deg,
+        #193B50,
+        #274F65
+    );
 
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+    color: white;
 
-text-align: center;
+    display: flex;
+    flex-direction: column;
 
-padding: 25px;
+    align-items: center;
+    justify-content: center;
 
-background: rgba(255, 255, 255, 0.86);
+    text-align: center;
 
-border: 1px solid rgba(255, 255, 255, 0.85);
+    padding: 27px;
 
-box-shadow:
-0 15px 45px rgba(23, 23, 25, 0.08),
-inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 0 0 12px rgba(49, 91, 112, 0.06),
+        0 0 0 28px rgba(49, 91, 112, 0.025),
+        0 20px 50px rgba(25, 59, 80, 0.22);
 
-backdrop-filter: blur(18px);
--webkit-backdrop-filter: blur(18px);
+    z-index: 5;
 }
 
-.mindmap-center h2 {
-font-size: 20px;
-line-height: 1.3;
+.center-icon {
+    width: 49px;
+    height: 49px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.center-label {
+    font-size: 8px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+
+    margin-bottom: 8px;
+}
+
+.mindmap-center h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 19px;
+    line-height: 1.35;
 }
 
 .mindmap-center p {
-margin-top: 10px;
-font-size: 11px;
+    font-size: 9px;
+    opacity: 0.75;
+
+    margin-top: 10px;
+    line-height: 1.5;
 }
 
-/* TOPIC BRANCHES */
 
-.topic-node {
-position: absolute;
+/* =========================================
+   07. MIND MAP BRANCH NODES
+========================================= */
 
-width: 255px;
-height: 82px;
+.mindmap-node {
+    position: absolute;
 
-box-sizing: border-box;
+    width: 255px;
+    min-height: 82px;
 
-display: flex;
-align-items: center;
-gap: 13px;
+    padding: 13px 15px;
 
-padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-border: 1px solid rgba(255, 255, 255, 0.85);
-border-radius: 18px;
+    text-align: left;
 
-background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(49, 91, 112, 0.13);
+    border-radius: 17px;
 
-color: #171719;
-text-align: left;
-font-family: inherit;
+    background: var(--surface-glass);
 
-box-shadow:
-0 7px 22px rgba(23, 23, 25, 0.055),
-inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 
-backdrop-filter: blur(14px);
--webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--soft-shadow);
 
-cursor: pointer;
+    z-index: 10;
+    cursor: pointer;
 
-z-index: 10;
-
-transition:
-transform 180ms ease,
-box-shadow 180ms ease,
-border-color 180ms ease;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
 }
 
-.topic-node:hover {
-transform: translateY(-4px);
+.mindmap-node:hover {
+    transform: translateY(-5px) scale(1.025);
 
-border-color: rgba(49, 91, 112, 0.35);
+    background: white;
 
-box-shadow:
-0 12px 28px rgba(23, 23, 25, 0.10);
+    border-color: rgba(49, 91, 112, 0.4);
+
+    box-shadow:
+        0 15px 35px rgba(25, 59, 80, 0.12);
 }
 
-.topic-node:focus-visible {
-outline: 3px solid rgba(49, 91, 112, 0.45);
-outline-offset: 4px;
+.mindmap-node:focus-visible {
+    outline: 3px solid #7398AA;
+    outline-offset: 4px;
 }
 
-.topic-node > i {
-flex: 0 0 38px;
+.node-icon {
+    flex-shrink: 0;
 
-width: 38px;
-height: 38px;
+    width: 43px;
+    height: 43px;
 
-display: flex;
-align-items: center;
-justify-content: center;
+    display: grid;
+    place-items: center;
 
-border-radius: 12px;
+    background: var(--accent-light);
+    color: var(--accent);
 
-background: #eef2f4;
-color: #315b70;
+    border-radius: 13px;
 
-font-size: 17px;
+    font-size: 17px;
 }
 
-.topic-node-content {
-min-width: 0;
+.node-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 
-display: flex;
-flex-direction: column;
-gap: 3px;
+    flex: 1;
+    min-width: 0;
 }
 
-.topic-node-number {
-color: #6e6e73;
-
-font-size: 10px;
-font-weight: 700;
-letter-spacing: 1px;
+.node-content strong {
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 700;
 }
 
-.topic-node-title {
-color: #171719;
-
-font-size: 12px;
-font-weight: 700;
-line-height: 1.25;
+.node-content small {
+    color: var(--secondary);
+    font-size: 9px;
 }
 
-.topic-node-category {
-color: #6e6e73;
-
-font-size: 10px;
-line-height: 1.2;
+.node-arrow {
+    color: var(--muted);
+    font-size: 10px;
 }
 
-/* TEN RADIAL POSITIONS */
+
+/* =========================================
+   08. RADIAL NODE POSITIONS (10 TOPICS PRESERVED)
+========================================= */
 
 .node-01 {
-left: 473px;
-top: 40px;
+    left: 473px;
+    top: 40px;
 }
 
 .node-02 {
-left: 810px;
-top: 120px;
+    left: 810px;
+    top: 120px;
 }
 
 .node-03 {
-left: 900px;
-top: 310px;
+    left: 900px;
+    top: 310px;
 }
 
 .node-04 {
-left: 900px;
-top: 610px;
+    left: 900px;
+    top: 610px;
 }
 
 .node-05 {
-left: 810px;
-top: 800px;
+    left: 810px;
+    top: 800px;
 }
 
 .node-06 {
-left: 473px;
-top: 880px;
+    left: 473px;
+    top: 880px;
 }
 
 .node-07 {
-left: 135px;
-top: 800px;
+    left: 135px;
+    top: 800px;
 }
 
 .node-08 {
-left: 45px;
-top: 610px;
+    left: 45px;
+    top: 610px;
 }
 
 .node-09 {
-left: 45px;
-top: 310px;
+    left: 45px;
+    top: 310px;
 }
 
 .node-10 {
-left: 135px;
-top: 120px;
+    left: 135px;
+    top: 120px;
 }
 
-/* =========================================================
-11. TOPIC MODAL
-========================================================= */
 
-#topicModal {
-position: fixed;
-inset: 0;
+/* =========================================
+   09. CONNECTING BRANCH LINES
+========================================= */
 
-z-index: 1000;
+.mindmap-canvas::before {
+    content: "";
 
-display: none;
-align-items: center;
-justify-content: center;
+    position: absolute;
 
-padding: 20px;
+    width: 560px;
+    height: 560px;
 
-background: rgba(15, 17, 20, 0.48);
+    left: 50%;
+    top: 50%;
 
-backdrop-filter: blur(9px);
--webkit-backdrop-filter: blur(9px);
+    transform: translate(-50%, -50%);
+
+    border: 1px dashed rgba(49, 91, 112, 0.23);
+
+    border-radius: 50%;
+
+    z-index: 1;
 }
 
-#topicModal.active {
-display: flex;
+.mindmap-center::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -42px;
+
+    border: 1px dashed rgba(49, 91, 112, 0.18);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   10. MAP FOOTER
+========================================= */
+
+.map-footer {
+    max-width: 1400px;
+
+    margin: 17px auto 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--secondary);
+    font-size: 11px;
+}
+
+.map-footer span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* =========================================
+   11. ABOUT SECTION
+========================================= */
+
+.about-section {
+    padding: 100px 10%;
+
+    text-align: center;
+
+    background: white;
+
+    border-top: 1px solid var(--border);
+}
+
+.about-section h2 {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    font-size: clamp(30px, 4vw, 45px);
+    line-height: 1.25;
+}
+
+.about-section p {
+    max-width: 650px;
+
+    margin: 20px auto 0;
+
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   12. MODAL OVERLAY
+========================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 500;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(15, 25, 32, 0.48);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .topic-modal {
-width: 100%;
-max-width: 650px;
+    width: 100%;
+    max-width: 650px;
 
-max-height: 88vh;
+    max-height: 88vh;
 
-display: flex;
-flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 
-overflow: hidden;
+    background: #FFFFFF;
 
-border-radius: 25px;
+    border-radius: 25px;
 
-background: #ffffff;
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.2);
 
-box-shadow: 0 25px 80px rgba(0, 0, 0, 0.20);
+    transform: translateY(25px) scale(0.97);
+
+    transition: transform 0.3s ease;
 }
+
+.modal-overlay.active .topic-modal {
+    transform: translateY(0) scale(1);
+}
+
+
+/* =========================================
+   13. MODAL HEADER
+========================================= */
 
 .modal-header {
-flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-padding: 25px 28px 18px;
-
-border-bottom: 1px solid #eeeeef;
+    padding: 25px 30px 10px;
 }
 
-.modal-body {
-flex: 1;
-min-height: 0;
+.modal-topic-icon {
+    width: 52px;
+    height: 52px;
 
-overflow-y: auto;
+    display: grid;
+    place-items: center;
 
-padding: 24px 28px;
+    background: var(--accent-light);
+    color: var(--accent);
 
-overscroll-behavior: contain;
-}
+    border-radius: 16px;
 
-.modal-footer {
-flex-shrink: 0;
-
-padding: 16px 28px;
-
-border-top: 1px solid #eeeeef;
+    font-size: 21px;
 }
 
 .modal-close {
-cursor: pointer;
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #F1F2F4;
+    color: var(--secondary);
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+.modal-close:hover {
+    background: var(--accent);
+    color: white;
+}
+
+
+/* =========================================
+   14. MODAL BODY
+========================================= */
+
+.modal-body {
+    padding: 20px 30px 30px;
+}
+
+.modal-body h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 31px;
+    line-height: 1.25;
+
+    margin-bottom: 14px;
+}
+
+.modal-description {
+    color: var(--secondary);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+/* LEARNING POINTS */
+
+.learning-points {
+    margin-top: 28px;
+}
+
+.learning-points h3,
+.related-topics h3 {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.learning-points h3 i {
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+#modalPoints {
+    display: grid;
+    gap: 10px;
 }
 
 .learning-point {
-margin-bottom: 12px;
+    padding: 12px 14px;
 
-line-height: 1.65;
-color: #39393d;
+    background: #F6F7F8;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    color: var(--secondary);
+    font-size: 12px;
+}
+
+.learning-point i {
+    color: var(--accent);
+    margin-top: 4px;
+}
+
+
+/* RELATED TOPICS */
+
+.related-topics {
+    margin-top: 28px;
+}
+
+#modalSubtopics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
 }
 
 .subtopic-tag {
-display: inline-flex;
+    padding: 9px 13px;
 
-margin: 4px;
-padding: 8px 12px;
+    border-radius: 30px;
 
-border-radius: 10px;
+    background: var(--accent-light);
+    color: var(--accent);
 
-background: #f1f3f5;
-
-color: #34383c;
-font-size: 13px;
+    font-size: 11px;
+    font-weight: 600;
 }
 
-.topic-modal-overlay {
-position: fixed;
-inset: 0;
+
+/* =========================================
+   15. MODAL FOOTER
+========================================= */
+
+.modal-footer {
+    padding: 17px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid var(--border);
 }
 
-/* =========================================================
-12. FOOTER
-========================================================= */
+.modal-footer span {
+    color: var(--secondary);
+    font-size: 10px;
+}
+
+.modal-footer span i {
+    margin-right: 5px;
+}
+
+.modal-footer button {
+    border: none;
+
+    padding: 11px 20px;
+
+    background: var(--accent);
+    color: white;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   16. FOOTER
+========================================= */
 
 .site-footer {
-padding: 45px 0;
+    padding: 45px 7%;
 
-background: #171719;
-color: #ffffff;
+    text-align: center;
+
+    background: #171719;
+    color: white;
 }
 
-.footer-content {
-display: flex;
-align-items: center;
-justify-content: space-between;
-
-gap: 25px;
-flex-wrap: wrap;
+.footer-brand {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
 .site-footer p {
-color: #a0a0a5;
-font-size: 12px;
+    color: #B5B5BA;
+    font-size: 12px;
+    margin-top: 10px;
 }
 
-.footer-links {
-display: flex;
-gap: 20px;
+.site-footer small {
+    display: block;
+
+    margin-top: 17px;
+
+    color: #85858A;
+    font-size: 10px;
 }
 
-.footer-links a {
-color: #c5c5ca;
-font-size: 12px;
-transition: var(–transition);
-}
 
-.footer-links a:hover {
-color: #ffffff;
-}
+/* =========================================
+   17. RESPONSIVE DESIGN
+========================================= */
 
-/* =========================================================
-13. MOBILE RESPONSIVENESS
-RADIAL MAP GEOMETRY REMAINS UNCHANGED
-========================================================= */
+@media (max-width: 900px) {
 
-@media (max-width: 768px) {
+    .site-header {
+        padding: 0 4%;
+    }
 
-.container {
-width: min(100% - 30px, var(–container));
-}
+    .main-nav {
+        gap: 17px;
+    }
 
-.navbar {
-min-height: 66px;
-}
+    .hero-decoration {
+        right: 4%;
+        opacity: 0.45;
+    }
 
-.nav-links {
-gap: 14px;
-}
-
-.nav-links a {
-font-size: 11px;
-}
-
-.hero {
-padding: 75px 0 60px;
-}
-
-.hero-description {
-font-size: 14px;
-}
-
-.section {
-padding: 65px 0;
-}
-
-.topics-grid {
-grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-/* MAP MOBILE BEHAVIOUR */
-
-.mindmap-container {
-width: 100%;
-max-width: 100%;
-
-overflow-x: auto;
-overflow-y: hidden;
-touch-action: pan-x pan-y;
-overscroll-behavior-x: contain;
+    .mindmap-section {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
 
 }
 
-.mindmap-canvas {
-width: 1200px;
-min-width: 1200px;
 
-height: 1000px;
-min-height: 1000px;
-margin: 0;
+/* TABLET AND MOBILE HEADER */
+
+@media (max-width: 650px) {
+
+    .site-header {
+        height: 72px;
+    }
+
+    .brand-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .brand-name strong {
+        font-size: 11px;
+    }
+
+    .brand-name small {
+        font-size: 9px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .header-action {
+        font-size: 10px;
+        padding: 9px 12px;
+    }
+
+    .hero {
+        min-height: 360px;
+        padding: 65px 7%;
+    }
+
+    .hero-decoration {
+        right: -90px;
+        opacity: 0.25;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .section-heading h2 {
+        font-size: 33px;
+    }
+
+    .map-instruction {
+        font-size: 10px;
+    }
+
+    .mindmap-container {
+        border-radius: 20px;
+    }
+
+    .mindmap-canvas {
+        width: 1200px;
+        min-width: 1200px;
+        height: 1000px;
+        min-height: 1000px;
+    }
+
+    .map-footer {
+        gap: 12px;
+        font-size: 9px;
+    }
+
+    .about-section {
+        padding: 75px 7%;
+    }
+
+    .modal-overlay {
+        padding: 12px;
+    }
+
+    .topic-modal {
+        max-height: 90vh;
+        border-radius: 20px;
+    }
+
+    .modal-header {
+        padding: 20px 20px 8px;
+    }
+
+    .modal-body {
+        padding: 17px 20px 25px;
+    }
+
+    .modal-body h2 {
+        font-size: 26px;
+    }
+
+    .modal-footer {
+        padding: 15px 20px;
+    }
 
 }
 
-.topic-node {
-width: 255px;
-height: 82px;
-}
 
-/* MODAL MOBILE */
-
-#topicModal {
-padding: 12px;
-align-items: center;
-}
-
-.topic-modal {
-width: 100%;
-max-width: 650px;
-
-max-height: 90dvh;
-border-radius: 20px;
-
-}
-
-.modal-header {
-padding: 20px 20px 15px;
-}
-
-.modal-body {
-padding: 20px;
-}
-
-.modal-footer {
-padding: 14px 20px;
-}
-
-.footer-content {
-flex-direction: column;
-align-items: flex-start;
-}
-}
-
-/* =========================================================
-14. SMALL MOBILE SCREENS
-========================================================= */
-
-@media (max-width: 380px) {
-
-.topics-grid {
-grid-template-columns: 1fr;
-}
-
-.topic-modal {
-border-radius: 17px;
-}
-
-.modal-header {
-padding: 17px;
-}
-
-.modal-body {
-padding: 17px;
-}
-
-.modal-footer {
-padding: 12px 17px;
-}
-}
-
-/* =========================================================
-15. ACCESSIBILITY
-========================================================= */
-
-:focus-visible {
-outline: 3px solid rgba(49, 91, 112, 0.45);
-outline-offset: 3px;
-}
+/* =========================================
+   18. ACCESSIBILITY
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-*,
-*::before,
-*::after {
-scroll-behavior: auto !important;
-transition-duration: 0.01ms !important;
-animation-duration: 0.01ms !important;
-animation-iteration-count: 1 !important;
-}
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 
-.topic-node:hover {
-transform: none;
 }
-}
-
-/* =========================================================
-16. MODAL SCROLL LOCK
-========================================================= */
-
-body.modal-open {
-overflow: hidden;
-}
-
-/* =========================================================
-END OF STYLESHEET
-========================================================= */
