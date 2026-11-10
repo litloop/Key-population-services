@@ -3,268 +3,301 @@
   "site": {
     "title": "Care & Knowledge",
     "subtitle": "Healthcare Training Hub",
-    "centralTheme": "Responsive & Patient-Centred Healthcare",
-    "totalTopics": 9
+    "centralTheme": "Integrated Healthcare Monitoring, Evaluation and Data Management",
+    "totalTopics": 10
   },
-
   "topics": [
-
     {
-      "id": "patients-rights",
+      "id": "monitoring-evaluation",
       "number": "01",
-      "title": "Patients' Rights",
-      "category": "Patient Protection",
-      "icon": "fa-shield-heart",
-
-      "description": "Patients' rights are the fundamental entitlements that every person should enjoy when accessing healthcare services. Healthcare workers must respect patients' dignity, privacy, confidentiality, autonomy and right to receive appropriate information before making healthcare decisions.",
-
-      "keyPoints": [
-        "Every patient deserves respectful and dignified treatment.",
-        "Patients have a right to privacy during consultations and examinations.",
-        "Personal health information must remain confidential, subject to applicable legal and safety requirements.",
-        "Patients should receive understandable information to support informed decisions.",
-        "Patients should be treated fairly without discrimination."
-      ],
-
-      "subtopics": [
-        "Right to Dignity",
-        "Privacy",
-        "Confidentiality",
-        "Informed Consent",
-        "Access to Healthcare",
-        "Non-discrimination"
-      ]
-    },
-
-
-    {
-      "id": "individual-differences",
-      "number": "02",
-      "title": "Individual Differences",
-      "category": "Understanding Patients",
-      "icon": "fa-users",
-
-      "description": "Individual differences refer to the ways people differ in their attitudes, behaviours, experiences, beliefs, communication styles and healthcare needs. Healthcare workers should recognise that patients do not all think, respond or make decisions in the same way.",
-
-      "keyPoints": [
-        "Patients have different attitudes towards healthcare services.",
-        "Past experiences can influence how patients interact with healthcare workers.",
-        "Cultural and social backgrounds may influence healthcare decisions.",
-        "Avoid making assumptions about patients based on appearance or background.",
-        "Adapt communication to individual needs while maintaining professional standards."
-      ],
-
-      "subtopics": [
-        "Patients' Attitudes",
-        "Patients' Behaviours",
-        "Individual Experiences",
-        "Social Differences",
-        "Cultural Considerations",
-        "Personal Healthcare Needs"
-      ]
-    },
-
-
-    {
-      "id": "sexual-practices",
-      "number": "03",
-      "title": "Common Sexual Practices",
-      "category": "Sexual Health Education",
-      "icon": "fa-book-open",
-
-      "description": "Understanding common sexual practices helps healthcare workers provide accurate, respectful and non-judgmental sexual health information. Discussions should focus on relevant health considerations, individual circumstances and appropriate prevention services.",
-
-      "keyPoints": [
-        "Sexual practices differ among individuals.",
-        "Healthcare workers should communicate without prejudice or judgment.",
-        "Sexual health discussions should respect privacy and confidentiality.",
-        "Health education should be factual, appropriate and understandable.",
-        "Risk assessment should consider the specific circumstances and exposure involved."
-      ],
-
-      "subtopics": [
-        "Understanding Sexual Practices",
-        "Sexual Health Education",
-        "Respectful Patient Discussions",
-        "Individual Circumstances",
-        "Prevention Awareness"
-      ]
-    },
-
-
-    {
-      "id": "infection-risk",
-      "number": "04",
-      "title": "Degree of Risk of Infection",
-      "category": "Infection Risk Awareness",
+      "title": "Introduction to Monitoring and Evaluation",
+      "category": "M&E Fundamentals",
       "icon": "fa-chart-line",
-
-      "description": "Understanding the degree of infection risk involves recognising that different exposures and circumstances may carry different levels of risk. Healthcare workers should provide evidence-based information and help patients understand appropriate prevention and testing options.",
-
+      "description": "An introduction to the fundamental concepts, purposes and processes of Monitoring and Evaluation (M&E) in healthcare programmes.",
       "keyPoints": [
-        "Not every exposure carries the same level of infection risk.",
-        "Risk assessment should consider the type of exposure and relevant circumstances.",
-        "Accurate information helps prevent misconceptions and unnecessary fear.",
-        "Healthcare workers should avoid assumptions and provide individualised guidance.",
-        "Prevention and testing services should be discussed where appropriate."
+        "Monitoring is a continuous process involving the systematic collection and analysis of data to track programme progress against established objectives.",
+        "Evaluation is a systematic process of assessing the relevance, effectiveness, efficiency and impact of programme activities to determine whether objectives have been achieved.",
+        "Monitoring and Evaluation involves collecting, analysing and using data to track performance and inform decision-making.",
+        "M&E helps programmes assess progress, identify implementation gaps and improve service delivery.",
+        "The results chain provides a framework for understanding how programme resources and activities contribute to intended results.",
+        "M&E findings support evidence-informed planning, programme improvement and accountability."
       ],
-
       "subtopics": [
-        "Understanding Exposure",
-        "Different Levels of Risk",
-        "Risk Assessment",
-        "HIV Transmission Education",
-        "Prevention Information",
-        "Testing and Referral"
+        "Basic concepts and definitions of Monitoring and Evaluation",
+        "Differences between monitoring and evaluation",
+        "Reasons for undertaking Monitoring and Evaluation",
+        "The results chain in M&E",
+        "Using M&E information for programme decision-making",
+        "Learning expectations for healthcare workers"
       ]
     },
-
-
     {
-      "id": "healthcare-messages",
+      "id": "data-collection-reporting-tools",
+      "number": "02",
+      "title": "Data Collection and Reporting Tools",
+      "category": "Data Management",
+      "icon": "fa-clipboard-list",
+      "description": "Understanding routine healthcare data collection and reporting tools, their purposes, formats, frequencies and relationships.",
+      "keyPoints": [
+        "Routine M&E tools are used to collect, document, report and analyse information about services provided by healthcare workers.",
+        "Harmonised and standardised tools promote consistency in healthcare data collection and reporting.",
+        "Data collection and reporting tools may be maintained in paper or electronic formats.",
+        "Cards generally contain information about one individual and are commonly used to document information from an encounter.",
+        "Forms collect information about an individual and may contain multiple sheets or sections. They are commonly completed during service delivery.",
+        "Registers contain individual client records arranged in rows, with standard data elements recorded in columns.",
+        "Monthly summary forms aggregate service information and do not contain individual client-level records.",
+        "Information recorded in forms and registers contributes to monthly reporting and programme monitoring."
+      ],
+      "subtopics": [
+        "Types of routine M&E tools",
+        "Cards: purpose, content and frequency of use",
+        "Forms: purpose, content and frequency of use",
+        "Registers: individual records, rows and columns",
+        "Monthly summary forms: aggregation and reporting",
+        "Paper-based and electronic data collection formats",
+        "Relationship between forms, registers and monthly summary forms",
+        "Harmonised and standardised healthcare reporting tools"
+      ]
+    },
+    {
+      "id": "hts-monitoring-evaluation",
+      "number": "03",
+      "title": "HIV Testing Services (HTS) Monitoring and Evaluation Tools",
+      "category": "HIV Testing Services",
+      "icon": "fa-file-medical",
+      "description": "An introduction to the harmonised HIV Testing Services monitoring and evaluation tools and their role in documenting and monitoring HTS activities.",
+      "keyPoints": [
+        "HTS monitoring tools support the documentation, reporting and monitoring of HIV testing services.",
+        "Healthcare workers should understand the purpose and appropriate use of each harmonised HTS tool.",
+        "HTS 001 is the HIV Testing Services Form.",
+        "HTS 002 is the HIV Testing Services Register.",
+        "HTS 003 is the Index Contact Testing Form.",
+        "HTS 004 is the HIV Testing Services Monthly Summary Form.",
+        "The tools support the recording of client-level information, service delivery activities and aggregated programme data.",
+        "The presentation outlines an HTS service flow that includes pre-test counselling and risk assessment, HIV testing, syphilis testing, post-test counselling and result disclosure.",
+        "Eligible HIV-negative clients may be referred for PrEP services."
+      ],
+      "subtopics": [
+        "Purpose of HTS monitoring and evaluation",
+        "Overview of harmonised HTS tools",
+        "HTS 001: HTS Form",
+        "HTS 002: HTS Register",
+        "HTS 003: Index Contact Testing Form",
+        "HTS 004: HTS Monthly Summary Form",
+        "HTS service flow and documentation",
+        "Pre-test counselling and risk assessment",
+        "HIV and syphilis testing documentation",
+        "Post-test counselling and result disclosure",
+        "Referral of eligible HIV-negative clients for PrEP"
+      ]
+    },
+    {
+      "id": "hts-tools-completion",
+      "number": "04",
+      "title": "HTS Tools: Sections, Components and Completion",
+      "category": "HIV Testing Services",
+      "icon": "fa-pen-to-square",
+      "description": "Practical understanding of the sections and components of HTS monitoring tools and how healthcare workers complete the required documentation.",
+      "keyPoints": [
+        "Healthcare workers should be familiar with the sections and components of the harmonised HTS tools.",
+        "HTS forms are used to document relevant client-level information during service delivery.",
+        "The HTS register supports the systematic recording of individual client records.",
+        "The Index Contact Testing Form supports documentation of index contact testing activities.",
+        "The HTS Monthly Summary Form is used to aggregate and report relevant service information.",
+        "Information should be recorded accurately and consistently in the appropriate tool.",
+        "The information documented in service delivery tools supports programme monitoring and reporting.",
+        "Client information should be handled confidentially and stored securely."
+      ],
+      "subtopics": [
+        "Identifying the sections and components of HTS tools",
+        "Completing HTS 001: HTS Form",
+        "Completing HTS 002: HTS Register",
+        "Completing HTS 003: Index Contact Testing Form",
+        "Completing HTS 004: HTS Monthly Summary Form",
+        "Documentation during HTS service delivery",
+        "Accuracy and completeness of HTS records",
+        "Confidentiality and secure storage of HTS documentation",
+        "Practical HTS documentation exercises"
+      ]
+    },
+    {
+      "id": "prep-pep-monitoring",
       "number": "05",
-      "title": "Key Messages for Healthcare Workers",
-      "category": "Professional Responsibilities",
-      "icon": "fa-message",
-
-      "description": "Healthcare workers play an important role in creating safe, respectful and inclusive healthcare environments. Their professional responsibilities include providing accurate information, protecting confidentiality, avoiding discrimination and ensuring that patients feel respected.",
-
+      "title": "PrEP and PEP Monitoring Tools",
+      "category": "HIV Prevention Services",
+      "icon": "fa-shield-virus",
+      "description": "Understanding the revised Pre-Exposure Prophylaxis (PrEP) and Post-Exposure Prophylaxis (PEP) monitoring tools and their use in HIV prevention programme documentation and reporting.",
       "keyPoints": [
-        "Treat every patient with dignity and respect.",
-        "Avoid prejudice, stigma and discriminatory behaviour.",
-        "Protect patient privacy and confidentiality.",
-        "Use clear, understandable and respectful language.",
-        "Provide accurate health information based on established guidance.",
-        "Ensure appropriate referrals and continuity of care."
+        "PrEP and PEP monitoring tools support documentation and monitoring of HIV prevention services.",
+        "The PrEP and PEP Screening and Eligibility Form captures client-level information on HIV and STI risk assessment and eligibility.",
+        "The screening and eligibility form is completed at every client encounter by the relevant service provider.",
+        "The screening form includes demographic information, pre-test counselling and risk assessment, HIV testing and PrEP eligibility sections.",
+        "The PrEP and PEP Card tracks services provided to clients enrolled in PrEP or PEP and is updated at each clinical encounter.",
+        "The PrEP and PEP Register documents client information and programme interventions and supports cohort analysis and monthly reporting.",
+        "The register includes facility details, registration and personal information, PrEP initiation and follow-up, PEP documentation, discontinuation and ART linkage.",
+        "Accurate client-level and aggregate data recording supports programme monitoring."
       ],
-
       "subtopics": [
-        "Professional Conduct",
-        "Respectful Treatment",
-        "Confidentiality",
-        "Non-discrimination",
-        "Stigma Reduction",
-        "Patient Safety"
+        "Introduction to PrEP and PEP monitoring",
+        "PrEP and PEP Screening and Eligibility Form",
+        "Demographic information",
+        "Pre-test counselling and risk assessment",
+        "HIV testing and eligibility sections",
+        "PrEP and PEP Card: front, centre and back pages",
+        "PrEP initiation and follow-up documentation",
+        "PEP exposure and follow-up documentation",
+        "PrEP and PEP Register",
+        "Discontinuation and ART linkage",
+        "Client-level and aggregate data reporting",
+        "Storage and confidentiality of PrEP and PEP records"
       ]
     },
-
-
     {
-      "id": "comprehensive-hiv",
+      "id": "sti-monitoring",
       "number": "06",
-      "title": "Comprehensive HIV Packages",
-      "category": "Integrated HIV Services",
-      "icon": "fa-kit-medical",
-
-      "description": "Comprehensive HIV service packages bring together relevant prevention, testing, treatment, care and support interventions. The aim is to address patients' health needs through coordinated services rather than treating each intervention in isolation.",
-
+      "title": "STI Monitoring and Reporting Tools",
+      "category": "Sexually Transmitted Infections",
+      "icon": "fa-file-circle-check",
+      "description": "Understanding the monitoring and reporting of sexually transmitted infection services using the relevant programme documentation and reporting tools.",
       "keyPoints": [
-        "HIV services should address prevention, diagnosis, treatment and ongoing care.",
-        "Patients should be linked to appropriate services based on their needs.",
-        "Healthcare delivery should consider physical, psychological and social support needs.",
-        "Continuity of care is important throughout the service pathway.",
-        "Integrated services can improve access and coordination of healthcare."
+        "STI monitoring and reporting tools support documentation of STI-related service delivery and programme performance.",
+        "Accurate recording helps healthcare workers monitor services and report programme activities.",
+        "STI screening and syndromic assessment are important elements of service documentation.",
+        "Relevant information may include client screening, clinical assessment, diagnosis, treatment and referral.",
+        "STI service information contributes to programme monitoring and monthly reporting.",
+        "Reported information may be disaggregated by relevant characteristics such as age, sex and target population, as specified by the reporting tool.",
+        "Completeness and consistency of STI records are important for reliable programme data."
       ],
-
       "subtopics": [
-        "HIV Prevention",
-        "HIV Testing",
-        "Treatment and ART",
-        "Care and Support",
-        "Linkage to Services",
-        "Continuity of Care"
+        "Introduction to STI monitoring and reporting",
+        "STI screening and documentation",
+        "Syndromic STI screening and classification",
+        "Diagnosis and aetiological information",
+        "Treatment and referral documentation",
+        "STI monitoring and reporting tools",
+        "STI monthly summary reporting",
+        "Data disaggregation and programme indicators",
+        "Completeness and accuracy of STI records"
       ]
     },
-
-
     {
-      "id": "hts",
+      "id": "viral-hepatitis-monitoring",
       "number": "07",
-      "title": "HIV Testing Services (HTS)",
-      "category": "HIV Testing and Counselling",
-      "icon": "fa-clipboard-check",
-
-      "description": "HIV Testing Services (HTS) are services through which individuals receive HIV testing together with appropriate information, support, counselling and linkage to prevention, treatment and care services. HTS should follow established guiding principles and applicable national testing algorithms.",
-
+      "title": "Viral Hepatitis Patient Monitoring Tools",
+      "category": "Viral Hepatitis Services",
+      "icon": "fa-notes-medical",
+      "description": "Understanding patient-level monitoring and documentation tools used in viral hepatitis services, including hepatitis B and hepatitis C care.",
       "keyPoints": [
-        "HTS helps individuals understand their HIV status.",
-        "Testing should follow applicable national guidelines and approved testing algorithms.",
-        "Consent, confidentiality, counselling, correct results and connection to services are important principles.",
-        "People with reactive screening results require the appropriate testing pathway to establish their final status.",
-        "Partner testing approaches should respect individual rights, safety and voluntary participation."
+        "Viral hepatitis patient monitoring tools support the documentation and tracking of services provided to clients.",
+        "The tools support monitoring of hepatitis B and hepatitis C services.",
+        "Patient monitoring documentation supports the recording of relevant service and clinical information over time.",
+        "Hepatitis C treatment and retreatment information should be documented where applicable.",
+        "Follow-up testing, including Sustained Virological Response (SVR) assessment, is part of the monitoring information covered in the training.",
+        "Patient monitoring may include treatment outcomes and relevant follow-up information.",
+        "Documentation supports continuity of care, programme monitoring and reporting.",
+        "Accurate and complete patient records are essential for reliable service monitoring."
       ],
-
       "subtopics": [
-        "Introduction to HTS",
-        "Guiding Principles of HTS",
-        "HIV Partner Testing Approaches",
-        "Testing and Counselling",
-        "Result Communication",
-        "Linkage to Prevention and Treatment"
+        "Introduction to viral hepatitis monitoring",
+        "Hepatitis B and hepatitis C patient monitoring",
+        "Viral hepatitis patient monitoring tools",
+        "Patient registration and service documentation",
+        "Hepatitis C treatment and retreatment documentation",
+        "Follow-up and Sustained Virological Response (SVR) testing",
+        "Treatment outcomes and patient follow-up",
+        "Hepatocellular Carcinoma (HCC) surveillance",
+        "Linkages within viral hepatitis programmes"
       ]
     },
-
-
     {
-      "id": "hiv-prevention",
+      "id": "data-quality",
       "number": "08",
-      "title": "Comprehensive HIV Prevention Services",
-      "category": "HIV Prevention",
-      "icon": "fa-heart-circle-check",
-
-      "description": "Comprehensive HIV prevention services combine appropriate biomedical, behavioural and structural interventions to reduce HIV transmission and support individual and community health. Prevention approaches should respond to the needs and circumstances of the people receiving services.",
-
+      "title": "Data Quality, Error Correction and Confidentiality",
+      "category": "Data Quality Management",
+      "icon": "fa-shield-halved",
+      "description": "Understanding common data quality problems, appropriate error correction, record review and the importance of protecting confidential healthcare information.",
       "keyPoints": [
-        "Combination prevention brings different evidence-based interventions together.",
-        "Prevention education helps people make informed health decisions.",
-        "Condoms and other appropriate prevention options form part of HIV prevention programmes.",
-        "PrEP and PEP are important biomedical prevention options when clinically appropriate.",
-        "Testing, treatment and linkage to care contribute to prevention efforts.",
-        "Reducing stigma and improving access to services support effective prevention."
+        "Data quality is essential for reliable programme monitoring, reporting and decision-making.",
+        "Common documentation problems include missing, incomplete, illegible, duplicated and inconsistent entries.",
+        "Physical and logical errors can affect the accuracy and reliability of healthcare records.",
+        "Healthcare workers should identify and address errors using the appropriate documentation procedures.",
+        "Regular review of registers and reporting tools helps identify data quality gaps.",
+        "Supportive supervision can strengthen documentation practices and improve data quality.",
+        "Healthcare records should be stored securely and accessed only by authorised personnel.",
+        "Client confidentiality must be maintained throughout data collection, storage, analysis and reporting."
       ],
-
       "subtopics": [
-        "Combination Prevention",
-        "Behavioural Interventions",
-        "Biomedical Interventions",
-        "Structural Interventions",
-        "PrEP and PEP",
-        "Condom Programming",
-        "Community Awareness"
+        "Introduction to healthcare data quality",
+        "Common data quality problems",
+        "Missing and incomplete entries",
+        "Illegible and duplicated records",
+        "Inconsistent information and logical errors",
+        "Identification and correction of documentation errors",
+        "Prevention of recurring data quality problems",
+        "Register review and routine data checks",
+        "Supportive supervision and data quality improvement",
+        "Secure storage of healthcare records",
+        "Confidentiality and appropriate access to client information"
       ]
     },
-
-
     {
-      "id": "communication-skills",
+      "id": "viral-hepatitis-monthly-reporting",
       "number": "09",
-      "title": "Good Communication Skills",
-      "category": "Responsive Healthcare",
-      "icon": "fa-comments",
-
-      "description": "Good communication skills help healthcare workers understand patients, explain health information and build trust. Responsive communication involves listening carefully, showing empathy, using understandable language and adapting conversations to the patient's needs.",
-
+      "title": "Viral Hepatitis Monthly Summary and Reporting",
+      "category": "Viral Hepatitis Reporting",
+      "icon": "fa-chart-column",
+      "description": "Understanding the aggregation and reporting of viral hepatitis service information using monthly summary and relevant programme reporting tools.",
       "keyPoints": [
-        "Listen actively without unnecessarily interrupting patients.",
-        "Use clear and simple language when explaining health information.",
-        "Demonstrate empathy and respect.",
-        "Allow patients to ask questions and express concerns.",
-        "Use appropriate non-verbal communication.",
-        "Confirm understanding without making patients feel uncomfortable.",
-        "Protect confidentiality during conversations."
+        "Monthly reporting summarises and aggregates relevant information about services provided.",
+        "Viral hepatitis reporting draws on relevant patient monitoring and service documentation tools.",
+        "Information from facility and community service delivery may contribute to programme reporting where applicable.",
+        "Relevant laboratory and treatment records support the documentation and reporting process.",
+        "Accurate aggregation is important to ensure that reported figures reflect the underlying service records.",
+        "Facility-level information contributes to the broader programme reporting structure.",
+        "Reporting supports programme monitoring, performance assessment and decision-making.",
+        "Confidentiality should be maintained when handling and reporting client information."
       ],
-
       "subtopics": [
-        "Active Listening",
-        "Empathy",
-        "Verbal Communication",
-        "Non-verbal Communication",
-        "Open-ended Questions",
-        "Patient Education",
-        "Building Trust",
-        "Responding to Patient Concerns"
+        "Introduction to viral hepatitis monthly reporting",
+        "Monthly summary and reporting tools",
+        "Facility and community service information",
+        "Laboratory and treatment register information",
+        "Viral hepatitis reporting indicators",
+        "Data aggregation and summary preparation",
+        "Facility, LGA, State and National reporting structure",
+        "Data accuracy and completeness during reporting",
+        "Confidentiality in programme reporting"
+      ]
+    },
+    {
+      "id": "integrated-me-practical",
+      "number": "10",
+      "title": "Practical Exercises and Group Work",
+      "category": "Practical Training",
+      "icon": "fa-users-gear",
+      "description": "Applying the knowledge gained from the training through practical exercises, case scenarios, tool completion and group-based data management activities.",
+      "keyPoints": [
+        "Practical exercises help participants apply M&E concepts to routine healthcare documentation.",
+        "Participants practise identifying the appropriate tools for different service delivery scenarios.",
+        "HTS case scenarios help participants identify the relevant tools required for client documentation.",
+        "PrEP, PEP, STI and viral hepatitis exercises reinforce understanding of their respective monitoring tools.",
+        "Participants practise identifying data sources and transferring relevant information into the appropriate tools.",
+        "Data quality exercises help participants identify missing, inconsistent and incorrect entries.",
+        "Group work encourages discussion, shared learning and practical problem-solving.",
+        "The exercises reinforce accurate documentation, reporting and confidentiality."
+      ],
+      "subtopics": [
+        "Practical exercises on Monitoring and Evaluation",
+        "HTS case scenarios and tool identification",
+        "HTS tool completion exercises",
+        "PrEP and PEP monitoring exercises",
+        "STI monitoring and documentation exercises",
+        "Viral hepatitis patient monitoring exercises",
+        "Identifying data sources and reporting requirements",
+        "Data quality checks and error correction",
+        "Group discussions and presentations",
+        "Applying confidentiality principles during documentation"
       ]
     }
-
   ]
 }
