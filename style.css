@@ -1,3 +1,4 @@
+
 /* =========================================
    01. ROOT VARIABLES & RESET
 ========================================= */
@@ -43,10 +44,6 @@ body {
     font-family: 'DM Sans', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-}
-
-body.modal-open {
-    overflow: hidden;
 }
 
 button,
@@ -362,9 +359,6 @@ a {
 
     scrollbar-width: thin;
     scrollbar-color: #BBC8CF transparent;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x pan-y;
-    overscroll-behavior-x: contain;
 
     border: 1px solid rgba(0, 0, 0, 0.045);
     border-radius: 30px;
@@ -384,13 +378,9 @@ a {
     position: relative;
 
     width: 1200px;
-    min-width: 1200px;
     height: 1000px;
-    min-height: 1000px;
 
     margin: 0 auto;
-    overflow: hidden;
-    isolation: isolate;
 }
 
 
@@ -404,8 +394,10 @@ a {
     width: 245px;
     height: 245px;
 
-    left: 477.5px;
-    top: 377.5px;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
 
     border-radius: 50%;
 
@@ -503,7 +495,6 @@ a {
     box-shadow: var(--soft-shadow);
 
     z-index: 10;
-    cursor: pointer;
 
     transition:
         transform 0.3s ease,
@@ -572,63 +563,71 @@ a {
 
 
 /* =========================================
-   08. RADIAL NODE POSITIONS (10 TOPICS PRESERVED)
+   08. RADIAL NODE POSITIONS
 ========================================= */
+
+/*
+   Nine branches are distributed around
+   the central node.
+
+   These coordinates create the visual
+   radial arrangement.
+*/
 
 .node-01 {
     left: 473px;
-    top: 40px;
+    top: 65px;
 }
 
 .node-02 {
     left: 810px;
-    top: 120px;
+    top: 150px;
 }
 
 .node-03 {
     left: 900px;
-    top: 310px;
+    top: 390px;
 }
 
 .node-04 {
-    left: 900px;
-    top: 610px;
+    left: 810px;
+    top: 700px;
 }
 
 .node-05 {
-    left: 810px;
-    top: 800px;
+    left: 473px;
+    top: 850px;
 }
 
 .node-06 {
-    left: 473px;
-    top: 880px;
+    left: 135px;
+    top: 700px;
 }
 
 .node-07 {
-    left: 135px;
-    top: 800px;
+    left: 45px;
+    top: 390px;
 }
 
 .node-08 {
-    left: 45px;
-    top: 610px;
+    left: 135px;
+    top: 150px;
 }
 
 .node-09 {
-    left: 45px;
-    top: 310px;
-}
-
-.node-10 {
-    left: 135px;
-    top: 120px;
+    left: 473px;
+    top: 455px;
 }
 
 
 /* =========================================
    09. CONNECTING BRANCH LINES
 ========================================= */
+
+/*
+   Lines connect the outer topics to
+   the central hub.
+*/
 
 .mindmap-canvas::before {
     content: "";
@@ -763,7 +762,6 @@ a {
     max-height: 88vh;
 
     overflow-y: auto;
-    overscroll-behavior: contain;
 
     background: #FFFFFF;
 
@@ -1086,9 +1084,7 @@ a {
 
     .mindmap-canvas {
         width: 1200px;
-        min-width: 1200px;
         height: 1000px;
-        min-height: 1000px;
     }
 
     .map-footer {
